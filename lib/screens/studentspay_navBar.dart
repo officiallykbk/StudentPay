@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:students_pay/screens/home_scren.dart';
 import 'package:students_pay/screens/learn_screen.dart';
 import 'package:students_pay/screens/studentsPay_screen.dart';
@@ -27,36 +26,82 @@ class _NavBarState extends State<NavBar> {
           body: _screens[_index],
           bottomNavigationBar: Padding(
             padding:
-                const EdgeInsets.only(right: 10.0, left: 10.0, bottom: 6.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.grey, borderRadius: BorderRadius.circular(24)),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 10.0, left: 24.0, right: 23.0, bottom: 10.0),
-                child: GNav(
-                  onTabChange: (value) {
+                const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Theme(
+                data: ThemeData(canvasColor: Colors.grey.shade800),
+                child: NavigationBar(
+                  height: 58,
+                  indicatorShape: CircleBorder(),
+                  // selectedIconTheme: IconThemeData(color: Colors.blue),
+                  // enableFeedback: false,
+                  // selectedItemColor: Colors.black,
+                  selectedIndex: _index,
+                  // onTap: (value) {
+                  //   setState(() {
+                  //     _index = value;
+                  //   });
+                  // },
+                  // items: [
+                  //   BottomNavigationBarItem(
+                  //       icon: Image.asset("assets/images/hom.png"), label: ""),
+                  //   BottomNavigationBarItem(
+                  //       icon: Image.asset("assets/images/wallet.png"),
+                  //       label: ""),
+                  //   BottomNavigationBarItem(
+                  //       icon: Image.asset("assets/images/learn.png"),
+                  //       label: ""),
+                  //   BottomNavigationBarItem(
+                  //       icon: Image.asset("assets/images/earn.png"), label: ""),
+                  // ],
+                  indicatorColor: Colors.black,
+
+                  onDestinationSelected: (int index) {
                     setState(() {
-                      _index = value;
+                      _index = index;
                     });
                   },
-                  backgroundColor: Colors.grey,
-                  activeColor: Colors.white,
-                  color: Colors.black,
-                  tabBackgroundColor: Colors.black,
-                  padding: const EdgeInsets.all(8),
-                  tabs: const [
-                    GButton(
-                      icon: Icons.home_outlined,
+                  destinations: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: NavigationDestination(
+                          selectedIcon: Image.asset(
+                            "assets/images/hom.png",
+                            color: Colors.white,
+                          ),
+                          icon: Image.asset("assets/images/hom.png"),
+                          label: ""),
                     ),
-                    GButton(
-                      icon: Icons.account_balance_wallet_outlined,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: NavigationDestination(
+                          selectedIcon: Image.asset(
+                            "assets/images/wallet.png",
+                            color: Colors.white,
+                          ),
+                          icon: Image.asset("assets/images/wallet.png"),
+                          label: ""),
                     ),
-                    GButton(
-                      icon: Icons.play_lesson_outlined,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: NavigationDestination(
+                          selectedIcon: Image.asset(
+                            "assets/images/learn.png",
+                            color: Colors.white,
+                          ),
+                          icon: Image.asset("assets/images/learn.png"),
+                          label: ""),
                     ),
-                    GButton(
-                      icon: Icons.work_outline,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: NavigationDestination(
+                          selectedIcon: Image.asset(
+                            "assets/images/earn.png",
+                            color: Colors.white,
+                          ),
+                          icon: Image.asset("assets/images/earn.png"),
+                          label: ""),
                     )
                   ],
                 ),

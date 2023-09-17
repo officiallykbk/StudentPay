@@ -26,6 +26,12 @@ class _PayScreenState extends State<PayScreen> {
         actions: [
           Row(
             children: [
+              const SizedBox(
+                  height: 40,
+                  width: 20,
+                  child: Image(
+                    image: AssetImage("assets/images/star1.png"),
+                  )),
               Text(
                 "17,537",
                 style: GoogleFonts.inter(
@@ -66,7 +72,9 @@ class _PayScreenState extends State<PayScreen> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    GestureDetector(
+                    InkWell(
+                      customBorder: const StadiumBorder(),
+                      splashColor: Colors.white24,
                       onTap: () {},
                       child: Container(
                         width: 180,
@@ -87,7 +95,9 @@ class _PayScreenState extends State<PayScreen> {
                       ),
                     ),
                     const Spacer(),
-                    GestureDetector(
+                    InkWell(
+                      customBorder: const StadiumBorder(),
+                      splashColor: Colors.black12,
                       onTap: () {},
                       child: Container(
                         width: 180,
@@ -150,21 +160,47 @@ class _PayScreenState extends State<PayScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Pizzaman",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Netflix",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -174,21 +210,47 @@ class _PayScreenState extends State<PayScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Spotify",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Udemy",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -198,21 +260,47 @@ class _PayScreenState extends State<PayScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Dstv",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
-                        Container(
-                          height: 110,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: const Border.fromBorderSide(
-                                  BorderSide(style: BorderStyle.solid))),
+                        InkWell(
+                          customBorder: const StadiumBorder(),
+                          splashColor: Colors.black12,
+                          onTap: () {},
+                          child: Container(
+                            height: 110,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: const Border.fromBorderSide(
+                                    BorderSide(style: BorderStyle.solid))),
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "E-book",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 18),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     )
@@ -222,10 +310,12 @@ class _PayScreenState extends State<PayScreen> {
               const SizedBox(
                 height: 11,
               ),
-              GestureDetector(
+              InkWell(
+                customBorder: const StadiumBorder(),
+                splashColor: Colors.grey,
                 onTap: () {},
                 child: Container(
-                  height: 50,
+                  height: 40,
                   width: width,
                   decoration: BoxDecoration(
                       color: Colors.black,
@@ -233,7 +323,8 @@ class _PayScreenState extends State<PayScreen> {
                   child: const Center(
                       child: Text(
                     "Pay",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, color: Colors.white),
                   )),
                 ),
               )
