@@ -139,6 +139,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+<<<<<<< HEAD
   linear_progress_bar:
     dependency: "direct main"
     description:
@@ -147,6 +148,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+=======
+>>>>>>> 19c0eeb6e04168bb79944d45618f97fa2482f4f6
   lints:
     dependency: transitive
     description:
