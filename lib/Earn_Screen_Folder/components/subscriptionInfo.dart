@@ -41,7 +41,7 @@ class SubscriptionInfo extends StatelessWidget {
                 child: Text(
                   info,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     letterSpacing: 0.5,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,

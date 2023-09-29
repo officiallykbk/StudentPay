@@ -2,16 +2,25 @@
 
 import 'package:flutter/material.dart';
 
-class PontsPage extends StatefulWidget {
-  const PontsPage({super.key});
+class PointsOptionPage extends StatefulWidget {
+  const PointsOptionPage({super.key});
 
   @override
-  State<PontsPage> createState() => _PontsPageState();
+  State<PointsOptionPage> createState() => _PontsPageState();
 }
 
-class _PontsPageState extends State<PontsPage> {
+class _PontsPageState extends State<PointsOptionPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text(
+            'Points Page',
+            style: TextStyle(fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }

@@ -12,6 +12,19 @@ class SubscribeOptionPage extends StatefulWidget {
 class _SubscribeOptionState extends State<SubscribeOptionPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Center(
+              child: Text(
+                'Subscribe Pagess',
+                style: TextStyle(fontSize: 20),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
