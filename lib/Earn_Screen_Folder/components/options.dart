@@ -2,25 +2,30 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/Microjobs_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/Points_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/challenges_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscribe_options.dart';
 
-class OptionsField extends StatefulWidget {
-  int selectedIndex = 0;
-  void navigateBottomBar(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
-  OptionsField({super.key, required this.options});
+class OptionsField extends StatelessWidget {
+  final void Function(int) updateSelectedIndex; // Callback function
+  final int index; // Index for this OptionsField
   final String options;
 
-  @override
-  State<OptionsField> createState() => _OptionsFieldState();
-}
-
-void setState(Null Function() param0) {}
-
-class _OptionsFieldState extends State<OptionsField> {
+  OptionsField({
+    Key? key,
+    required this.updateSelectedIndex,
+    required this.index,
+    required this.options,
+  });
+  final List<Widget> _optionPages = [
+    SubscribeOptionPage(),
+    ReferralOptionPage(),
+    PointsOptionPage(),
+    MicrojobsOptions(),
+    ChallengeOptions(),
+  ];
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -32,20 +37,29 @@ class _OptionsFieldState extends State<OptionsField> {
             InkWell(
               customBorder: StadiumBorder(),
               splashColor: Colors.black,
-              onTap: () {},
+              onTap: () {
+                // Call the callback function with the index when tapped
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => _optionPages[(index)]));
+              },
               child: Container(
                 width: width * 0.3,
                 height: 45,
                 decoration: BoxDecoration(
-                    border: const Border.fromBorderSide(
-                        BorderSide(style: BorderStyle.solid)),
-                    borderRadius: BorderRadius.circular(30)),
+                  border: const Border.fromBorderSide(
+                    BorderSide(style: BorderStyle.solid),
+                  ),
+                  borderRadius: BorderRadius.circular(30),
+                ),
                 child: Center(
                   child: Text(
-                    widget.options,
+                    options,
                     style: GoogleFonts.inter(
-                        textStyle: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w600)),
+                      textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ),
               ),

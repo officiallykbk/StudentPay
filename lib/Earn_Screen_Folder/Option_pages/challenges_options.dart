@@ -7,6 +7,15 @@ class ChallengeOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text(
+            'Challenges Page',
+            style: TextStyle(fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }

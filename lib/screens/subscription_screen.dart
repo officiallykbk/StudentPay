@@ -9,7 +9,11 @@ import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart
 
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({Key? key});
-
+// Define a callback function to update selectedIndex
+  void updateSelectedIndex(int index) {
+    // Update the selectedIndex here
+    // You can implement any logic you need to handle the index update
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +68,9 @@ class SubscriptionScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: OptionsField(
+                    // Pass the callback function to OptionsField
+                    updateSelectedIndex: updateSelectedIndex,
+                    index: 0,
                     options: 'Subscribe',
                   ),
                 ),
@@ -71,24 +78,32 @@ class SubscriptionScreen extends StatelessWidget {
                   width: 7,
                 ),
                 OptionsField(
+                  updateSelectedIndex: updateSelectedIndex,
+                  index: 1,
                   options: 'Referral',
                 ),
                 SizedBox(
                   width: 7,
                 ),
                 OptionsField(
+                  updateSelectedIndex: updateSelectedIndex,
+                  index: 2,
                   options: 'Points',
                 ),
                 SizedBox(
                   width: 7,
                 ),
                 OptionsField(
+                  updateSelectedIndex: updateSelectedIndex,
+                  index: 3,
                   options: 'Microjobs',
                 ),
                 SizedBox(
                   width: 7,
                 ),
                 OptionsField(
+                  updateSelectedIndex: updateSelectedIndex,
+                  index: 4,
                   options: 'Challenge',
                 ),
               ],
@@ -155,6 +170,7 @@ class SubscriptionScreen extends StatelessWidget {
                 textTwo:
                     'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
               ),
+              SizedBox(height: 50),
             ],
           ),
         ],

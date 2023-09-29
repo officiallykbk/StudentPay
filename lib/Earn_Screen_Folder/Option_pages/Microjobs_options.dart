@@ -12,6 +12,15 @@ class MicrojobsOptions extends StatefulWidget {
 class _MicrojobsOptionsState extends State<MicrojobsOptions> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text(
+            'MicroJobs Page',
+            style: TextStyle(fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }

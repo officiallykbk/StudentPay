@@ -10,6 +10,15 @@ class ReferralOptionPage extends StatefulWidget {
 class _ReferralOptionPageState extends State<ReferralOptionPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text(
+            'Referaalls Page',
+            style: TextStyle(fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }
