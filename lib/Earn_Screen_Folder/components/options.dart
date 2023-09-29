@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscribe_options.dart';
 
 class OptionsField extends StatefulWidget {
   int selectedIndex = 0;
@@ -32,7 +33,10 @@ class _OptionsFieldState extends State<OptionsField> {
             InkWell(
               customBorder: StadiumBorder(),
               splashColor: Colors.black,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => SubscribeOptionPage()));
+              },
               child: Container(
                 width: width * 0.3,
                 height: 45,

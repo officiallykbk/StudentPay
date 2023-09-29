@@ -155,6 +155,7 @@ class SubscriptionScreen extends StatelessWidget {
                 textTwo:
                     'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
               ),
+              SizedBox(height: 50),
             ],
           ),
         ],
