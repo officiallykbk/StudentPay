@@ -7,7 +7,7 @@ class SubscriptionInfo extends StatelessWidget {
       : super(key: key);
 
   final String info;
-  final Icon icon;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,9 @@ class SubscriptionInfo extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(5), // Adjust the padding as needed
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
                 border: Border.all(
-                  color: Color(0xFFACA3A3), // Set the border color
-                  width: 2, // Set the border width
+                  color: Color(0xFFFFFFFF), // Set the border color
+                  width: 1, // Set the border width
                 ),
               ),
               child: icon, // Use the provided Icon widget directly

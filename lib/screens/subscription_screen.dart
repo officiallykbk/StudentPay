@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,9 +111,14 @@ class SubscriptionScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: SubscriptionInfo(
+              icon: Image.asset(
+                'assets/images/offer.png', // Replace with your image path
+                width: 24, // Adjust the width as needed
+                height: 24, // Adjust the height as needed
+                // Add any decoration if needed
+              ),
               info:
                   'Start earning up to 1000 a month including no transaction fees',
-              icon: Icon(Icons.telegram),
             ),
           ),
           SizedBox(height: 10),
@@ -121,7 +126,12 @@ class SubscriptionScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: SubscriptionInfo(
               info: 'Subscribe to get more points',
-              icon: Icon(Icons.wallet_rounded),
+              icon: Image.asset(
+                'assets/images/cash.png', // Replace with your image path
+                width: 24, // Adjust the width as needed
+                height: 24, // Adjust the height as needed
+                // Add any decoration if needed
+              ),
             ),
           ),
           SizedBox(height: 20),
