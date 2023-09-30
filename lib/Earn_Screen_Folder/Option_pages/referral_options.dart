@@ -1,14 +1,15 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
-import 'package:students_pay/Earn_Screen_Folder/components/offers.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/options.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 
 class ReferralOptionPage extends StatefulWidget {
-  const ReferralOptionPage({super.key});
+  const ReferralOptionPage({
+    super.key,
+  });
 
   @override
   State<ReferralOptionPage> createState() => _ReferralOptionPageState();
@@ -140,14 +141,12 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: SubscriptionInfo(
-              icon: Image.asset(
-                'assets/images/offer.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+              icon: Icon(
+                Icons.telegram,
+                size: 35,
               ),
               info:
-                  'Start earning up to 1000 a month including no transaction fees',
+                  'Send Referrral codes to others and earn points that can be withdrawn as cash',
             ),
           ),
           SizedBox(height: 10),
@@ -166,25 +165,113 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
           SizedBox(height: 20),
           Column(
             children: [
-              SubscriptionOffers(
-                color: Color(0x73C6D7F1),
-                text: 'GHC 50 Offer',
-                textTwo: 'House Master',
-              ),
-              SubscriptionOffers(
+              ReferralVoucherField(
+                text:
+                    'Share Your referral Code with your Friends on Other Socia media platforms',
+                textTwo:
+                    'Earn up to 1500 coins every 5 friends you share your referral code with',
                 color: Color(0xFFC5F3D6),
-                text: 'GHC 100 Offer',
-                textTwo: 'Whats My Name',
-              ),
-              SubscriptionOffers(
-                color: Color(0xFFFAF6D3),
-                text: 'GHC 250 Offer',
-                textTwo: 'Hello Whats Mine',
-              ),
-              SizedBox(height: 50),
+              )
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ReferralVoucherField extends StatelessWidget {
+  const ReferralVoucherField(
+      {super.key,
+      required this.text,
+      required this.textTwo,
+      required this.color});
+  final String text;
+  final String textTwo;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final vouchernamecontroller = TextEditingController();
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 5),
+      child: Container(
+        width: width,
+        height: height * 0.28,
+        decoration: BoxDecoration(
+            color: color,
+            border: const Border.fromBorderSide(
+                BorderSide(style: BorderStyle.solid)),
+            borderRadius: BorderRadius.circular(30)),
+        child: Padding(
+          padding: const EdgeInsets.all(17.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                text,
+                style: GoogleFonts.inter(
+                    textStyle: const TextStyle(
+                        color: Color(0xFF070101),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900)),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(textTwo,
+                  style: GoogleFonts.inter(
+                      textStyle: const TextStyle(
+                          letterSpacing: 0.3,
+                          color: Color(0xFF070101),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500))),
+              SizedBox(
+                height: 15,
+              ),
+              VoucherField(
+                hintText: 'Enter Voucher Code',
+                controller: vouchernamecontroller,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class VoucherField extends StatelessWidget {
+  const VoucherField({
+    super.key,
+    this.controller,
+    required this.hintText,
+  });
+  final controller;
+  final String hintText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, left: 1, right: 1),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide.none, // Remove the solid border
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+        ),
       ),
     );
   }
