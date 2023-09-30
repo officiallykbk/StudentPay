@@ -67,114 +67,119 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
           )
         ],
       ),
-      body: ListView(
-        children: [
-          Savings(),
-          SizedBox(height: 15),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: OptionsField(
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: ListView(
+          children: [
+            Savings(),
+            SizedBox(height: 15),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: OptionsField(
+                      currentUser: 1,
+                      // Pass the callback function to OptionsField
+                      updateSelectedIndex: updateSelectedIndex,
+                      index: 0,
+                      options: 'Subscribe',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  OptionsField(
                     currentUser: 1,
-                    // Pass the callback function to OptionsField
                     updateSelectedIndex: updateSelectedIndex,
-                    index: 0,
-                    options: 'Subscribe',
+                    index: 1,
+                    options: 'Referral',
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  OptionsField(
+                    currentUser: 0,
+                    updateSelectedIndex: updateSelectedIndex,
+                    index: 2,
+                    options: 'Points',
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  OptionsField(
+                    currentUser: 0,
+                    updateSelectedIndex: updateSelectedIndex,
+                    index: 3,
+                    options: 'Microjobs',
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  OptionsField(
+                    currentUser: 0,
+                    updateSelectedIndex: updateSelectedIndex,
+                    index: 4,
+                    options: 'Challenge',
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 17, top: 25),
+              child: Text(
+                'Student Monthly Subscription',
+                style: GoogleFonts.inter(
+                  textStyle: TextStyle(
+                    color: Color(0xFF000000),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
-                SizedBox(
-                  width: 7,
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: SubscriptionInfo(
+                icon: Icon(
+                  Icons.telegram,
+                  size: 35,
                 ),
-                OptionsField(
-                  currentUser: 1,
-                  updateSelectedIndex: updateSelectedIndex,
-                  index: 1,
-                  options: 'Referral',
+                info:
+                    'Send Referrral codes to others and earn points that can be withdrawn as cash',
+              ),
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: SubscriptionInfo(
+                info: 'Subscribe to get more points',
+                icon: Image.asset(
+                  'assets/images/cash.png', // Replace with your image path
+                  width: 24, // Adjust the width as needed
+                  height: 24, // Adjust the height as needed
+                  // Add any decoration if needed
                 ),
-                SizedBox(
-                  width: 7,
-                ),
-                OptionsField(
-                  currentUser: 0,
-                  updateSelectedIndex: updateSelectedIndex,
-                  index: 2,
-                  options: 'Points',
-                ),
-                SizedBox(
-                  width: 7,
-                ),
-                OptionsField(
-                  currentUser: 0,
-                  updateSelectedIndex: updateSelectedIndex,
-                  index: 3,
-                  options: 'Microjobs',
-                ),
-                SizedBox(
-                  width: 7,
-                ),
-                OptionsField(
-                  currentUser: 0,
-                  updateSelectedIndex: updateSelectedIndex,
-                  index: 4,
-                  options: 'Challenge',
-                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Column(
+              children: [
+                ReferralVoucherField(
+                  text:
+                      'Share Your referral Code with your Friends on Other Socia media platforms',
+                  textTwo:
+                      'Earn up to 1500 coins every 5 friends you share your referral code with',
+                  color: Color(0xFFC5F3D6),
+                )
               ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 17, top: 25),
-            child: Text(
-              'Student Monthly Subscription',
-              style: GoogleFonts.inter(
-                textStyle: TextStyle(
-                  color: Color(0xFF000000),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: SubscriptionInfo(
-              icon: Icon(
-                Icons.telegram,
-                size: 35,
-              ),
-              info:
-                  'Send Referrral codes to others and earn points that can be withdrawn as cash',
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: SubscriptionInfo(
-              info: 'Subscribe to get more points',
-              icon: Image.asset(
-                'assets/images/cash.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Column(
-            children: [
-              ReferralVoucherField(
-                text:
-                    'Share Your referral Code with your Friends on Other Socia media platforms',
-                textTwo:
-                    'Earn up to 1500 coins every 5 friends you share your referral code with',
-                color: Color(0xFFC5F3D6),
-              )
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
