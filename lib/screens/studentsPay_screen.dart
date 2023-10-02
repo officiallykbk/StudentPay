@@ -331,8 +331,8 @@ class _PayScreenState extends State<PayScreen> {
                   ]),
                 ),
               ),
-              const SizedBox(
-                height: 11,
+              SizedBox(
+                height: height / 100 * 1,
               ),
               InkWell(
                 customBorder: const StadiumBorder(),
@@ -341,7 +341,6 @@ class _PayScreenState extends State<PayScreen> {
                 child: Container(
                   constraints:
                       const BoxConstraints(maxHeight: 40, minHeight: 16),
-                  height: 40,
                   width: width,
                   decoration: BoxDecoration(
                       color: Colors.black,
