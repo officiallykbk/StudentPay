@@ -103,7 +103,8 @@ class _HomeScrenState extends State<HomeScren> {
                   const SizedBox(
                     width: 15,
                   ),
-                  SvgPicture.asset("assets/svgassets/notification.svg")
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.notifications)),
                 ],
               ),
             ]),

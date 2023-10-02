@@ -7,10 +7,9 @@ class KeyPad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', '', 0];
+    List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0, ""];
     return Container(
-        height: 150,
-        width: 300,
+        width: MediaQuery.of(context).size.width - 50,
         margin: const EdgeInsets.all(5),
         child: GridView.builder(
           itemCount: 12,
@@ -20,7 +19,7 @@ class KeyPad extends StatelessWidget {
             return InkWell(
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 198, 200, 202),
+                    color: const Color.fromARGB(255, 222, 224, 225),
                     borderRadius: BorderRadius.circular(50)),
                 alignment: Alignment.center,
                 margin: const EdgeInsets.all(10),
@@ -35,31 +34,50 @@ class KeyPad extends StatelessWidget {
 }
 
 //THIS WOULD BE USED AS A TEMPLATE DIFFERENT TRANSACTION METHODS
-class SendMethod extends StatelessWidget {
+class SendMethod extends StatefulWidget {
   final String method;
   final String pngname;
+  final bool selected;
 
-  const SendMethod({super.key, required this.method, required this.pngname});
+  const SendMethod({
+    super.key,
+    required this.method,
+    required this.pngname,
+    required this.selected,
+  });
 
+  @override
+  State<SendMethod> createState() => _SendMethodState();
+}
+
+class _SendMethodState extends State<SendMethod> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: 52,
+        width: MediaQuery.of(context).size.width - 50,
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-              width: 0.7, color: const Color.fromRGBO(193, 190, 190, 1)),
+        decoration: ShapeDecoration(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(
+                width: 1,
+                color: widget.selected
+                    ? const Color.fromARGB(255, 90, 179, 231)
+                    : Colors.black.withOpacity(0.20000000298023224),
+              ),
+              borderRadius: BorderRadius.circular(12)),
         ),
         child: Row(
           children: [
             const SizedBox(width: 10),
             CircleAvatar(
               backgroundColor: Colors.transparent,
-              child: SvgPicture.asset("assets/svgassets/$pngname"),
+              child: SvgPicture.asset("assets/svgassets/${widget.pngname}"),
             ),
             const SizedBox(width: 5),
-            Text(method,
+            Text(widget.method,
                 style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
@@ -68,6 +86,51 @@ class SendMethod extends StatelessWidget {
             SvgPicture.asset("assets/svgassets/diagonalarrow.svg")
           ],
         ));
+  }
+}
+
+// This is for the appbar of the various send screens
+class AppTop extends StatelessWidget {
+  const AppTop({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      leading: GestureDetector(
+        onTap: () => Navigator.of(context).pop(),
+        child: Container(
+          margin: const EdgeInsets.all(10),
+          alignment: Alignment.center,
+          child: SvgPicture.asset("assets/svgassets/back_button.svg"),
+        ),
+      ),
+      title: const Text("Send Money",
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black)),
+      centerTitle: true,
+    );
+  }
+}
+
+class Progress extends StatelessWidget {
+  final double indicator;
+  const Progress({super.key, required this.indicator});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 7,
+      width: MediaQuery.of(context).size.width - 50,
+      margin: const EdgeInsets.only(top: 10, bottom: 10),
+      child: LinearProgressIndicator(
+        color: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 204, 204, 204),
+        value: indicator,
+        borderRadius: BorderRadius.circular(25),
+      ),
+    );
   }
 }
 
