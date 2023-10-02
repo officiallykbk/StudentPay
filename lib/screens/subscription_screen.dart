@@ -70,6 +70,7 @@ class SubscriptionScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: OptionsField(
+                    currentUser: 0,
                     // Pass the callback function to OptionsField
                     updateSelectedIndex: updateSelectedIndex,
                     index: 0,
@@ -80,6 +81,7 @@ class SubscriptionScreen extends StatelessWidget {
                   width: 7,
                 ),
                 OptionsField(
+                  currentUser: 0,
                   updateSelectedIndex: updateSelectedIndex,
                   index: 1,
                   options: 'Referral',
@@ -88,6 +90,7 @@ class SubscriptionScreen extends StatelessWidget {
                   width: 7,
                 ),
                 OptionsField(
+                  currentUser: 0,
                   updateSelectedIndex: updateSelectedIndex,
                   index: 2,
                   options: 'Points',
@@ -96,6 +99,7 @@ class SubscriptionScreen extends StatelessWidget {
                   width: 7,
                 ),
                 OptionsField(
+                  currentUser: 0,
                   updateSelectedIndex: updateSelectedIndex,
                   index: 3,
                   options: 'Microjobs',
@@ -104,6 +108,7 @@ class SubscriptionScreen extends StatelessWidget {
                   width: 7,
                 ),
                 OptionsField(
+                  currentUser: 0,
                   updateSelectedIndex: updateSelectedIndex,
                   index: 4,
                   options: 'Challenge',

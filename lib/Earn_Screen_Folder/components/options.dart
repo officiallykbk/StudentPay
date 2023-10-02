@@ -10,6 +10,7 @@ import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscribe_options.d
 
 class OptionsField extends StatelessWidget {
   final void Function(int) updateSelectedIndex; // Callback function
+  final int currentUser;
   final int index; // Index for this OptionsField
   final String options;
 
@@ -18,6 +19,7 @@ class OptionsField extends StatelessWidget {
     required this.updateSelectedIndex,
     required this.index,
     required this.options,
+    required this.currentUser,
   });
   final List<Widget> _optionPages = [
     SubscribeOptionPage(),
@@ -46,6 +48,8 @@ class OptionsField extends StatelessWidget {
                 width: width * 0.3,
                 height: 45,
                 decoration: BoxDecoration(
+                  color:
+                      currentUser == index ? Colors.black : Colors.transparent,
                   border: const Border.fromBorderSide(
                     BorderSide(style: BorderStyle.solid),
                   ),
@@ -55,9 +59,11 @@ class OptionsField extends StatelessWidget {
                   child: Text(
                     options,
                     style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
+                        color:
+                            currentUser == index ? Colors.white : Colors.black,
                       ),
                     ),
                   ),
