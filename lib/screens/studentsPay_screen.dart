@@ -129,7 +129,7 @@ class _PayScreenState extends State<PayScreen> {
                 height: 11,
               ),
               Container(
-                height: height * 0.54,
+                height: height * 0.55,
                 width: width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -330,6 +330,9 @@ class _PayScreenState extends State<PayScreen> {
                     )
                   ]),
                 ),
+              ),
+              SizedBox(
+                height: height / 100 * 2,
               ),
               InkWell(
                 customBorder: const StadiumBorder(),
