@@ -125,9 +125,7 @@ class _PayScreenState extends State<PayScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 11,
-              ),
+              const Spacer(),
               Container(
                 height: height * 0.54,
                 width: width,
@@ -331,6 +329,7 @@ class _PayScreenState extends State<PayScreen> {
                   ]),
                 ),
               ),
+              const Spacer(),
               InkWell(
                 customBorder: const StadiumBorder(),
                 splashColor: Colors.grey,
