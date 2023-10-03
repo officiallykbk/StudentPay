@@ -329,6 +329,7 @@ class _PayScreenState extends State<PayScreen> {
                   ]),
                 ),
               ),
+              const Spacer(),
               InkWell(
                 customBorder: const StadiumBorder(),
                 splashColor: Colors.grey,
