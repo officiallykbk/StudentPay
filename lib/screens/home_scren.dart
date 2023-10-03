@@ -64,6 +64,7 @@ class _HomeScrenState extends State<HomeScren> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+            toolbarHeight: 94.5,
             backgroundColor: Colors.transparent,
             elevation: 0,
             title: const Row(
@@ -280,6 +281,7 @@ class _HomeScrenState extends State<HomeScren> {
                           )
                         : Expanded(
                             child: ListView.builder(
+                              physics: const BouncingScrollPhysics(),
                               itemCount: receivernames.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return Padding(
@@ -288,7 +290,7 @@ class _HomeScrenState extends State<HomeScren> {
                                   child: Row(
                                     children: [
                                       Expanded(
-                                        flex: 5,
+                                        flex: 8,
                                         child: Row(
                                           children: [
                                             const CircleAvatar(
@@ -321,7 +323,7 @@ class _HomeScrenState extends State<HomeScren> {
                                       ),
                                       // REPLACE TEXT WITH LOST CASH
                                       const Expanded(
-                                        flex: 5,
+                                        flex: 2,
                                         child: Text(
                                           "-3000.00",
                                           style: TextStyle(

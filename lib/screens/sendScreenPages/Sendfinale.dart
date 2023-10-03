@@ -16,7 +16,7 @@ class Finale extends StatelessWidget {
     return Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
-          child: AppTop(),
+          child: AppTop(name: "Send Money"),
         ),
         body: Column(
           children: [

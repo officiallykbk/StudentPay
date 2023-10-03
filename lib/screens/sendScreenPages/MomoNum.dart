@@ -22,7 +22,7 @@ class _MomoNumState extends State<MomoNum> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: AppTop(),
+        child: AppTop(name: "Send Money"),
       ),
       body: Column(
         children: [
@@ -53,6 +53,7 @@ class _MomoNumState extends State<MomoNum> {
                     height: 35,
                     width: screenWidth - 50,
                     child: TextFormField(
+                      // keyboardAppearance: ,
                       textAlign: TextAlign.center,
                       autocorrect: false,
                       decoration: const InputDecoration(

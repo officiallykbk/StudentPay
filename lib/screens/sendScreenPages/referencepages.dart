@@ -91,7 +91,8 @@ class _SendMethodState extends State<SendMethod> {
 
 // This is for the appbar of the various send screens
 class AppTop extends StatelessWidget {
-  const AppTop({Key? key}) : super(key: key);
+  final String name;
+  const AppTop({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +107,8 @@ class AppTop extends StatelessWidget {
           child: SvgPicture.asset("assets/svgassets/back_button.svg"),
         ),
       ),
-      title: const Text("Send Money",
-          style: TextStyle(
+      title: Text(name,
+          style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black)),
       centerTitle: true,
     );

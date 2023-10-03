@@ -32,7 +32,7 @@ class _SendMoneyState extends State<SendMoney> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: AppTop(),
+        child: AppTop(name: "Send Money"),
       ),
       body: Column(
         children: [
