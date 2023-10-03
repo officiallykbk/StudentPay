@@ -77,8 +77,11 @@ class _PayScreenState extends State<PayScreen> {
                       splashColor: Colors.white24,
                       onTap: () {},
                       child: Container(
-                        width: 180,
-                        height: 50,
+                        constraints: const BoxConstraints(
+                            maxHeight: 50,
+                            maxWidth: 180,
+                            minHeight: 30,
+                            minWidth: 108),
                         decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(30)),
@@ -100,8 +103,11 @@ class _PayScreenState extends State<PayScreen> {
                       splashColor: Colors.black12,
                       onTap: () {},
                       child: Container(
-                        width: 180,
-                        height: 50,
+                        constraints: const BoxConstraints(
+                            maxHeight: 50,
+                            maxWidth: 180,
+                            minHeight: 30,
+                            minWidth: 108),
                         decoration: BoxDecoration(
                             border: const Border.fromBorderSide(
                                 BorderSide(style: BorderStyle.solid)),
@@ -165,8 +171,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -186,8 +195,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -215,8 +227,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -236,8 +251,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -265,8 +283,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -286,8 +307,11 @@ class _PayScreenState extends State<PayScreen> {
                           splashColor: Colors.black12,
                           onTap: () {},
                           child: Container(
-                            height: 110,
-                            width: 150,
+                            constraints: const BoxConstraints(
+                                maxHeight: 110,
+                                maxWidth: 150,
+                                minHeight: 55,
+                                minWidth: 60),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: const Border.fromBorderSide(
@@ -307,15 +331,16 @@ class _PayScreenState extends State<PayScreen> {
                   ]),
                 ),
               ),
-              const SizedBox(
-                height: 11,
+              SizedBox(
+                height: height / 100 * 1,
               ),
               InkWell(
                 customBorder: const StadiumBorder(),
                 splashColor: Colors.grey,
                 onTap: () {},
                 child: Container(
-                  height: 40,
+                  constraints:
+                      const BoxConstraints(maxHeight: 40, minHeight: 16),
                   width: width,
                   decoration: BoxDecoration(
                       color: Colors.black,

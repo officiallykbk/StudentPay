@@ -35,30 +35,9 @@ class _NavBarState extends State<NavBar> {
                 data: ThemeData(canvasColor: Colors.grey.shade800),
                 child: NavigationBar(
                   height: 58,
-                  indicatorShape: CircleBorder(),
-                  // selectedIconTheme: IconThemeData(color: Colors.blue),
-                  // enableFeedback: false,
-                  // selectedItemColor: Colors.black,
+                  indicatorShape: const CircleBorder(),
                   selectedIndex: _index,
-                  // onTap: (value) {
-                  //   setState(() {
-                  //     _index = value;
-                  //   });
-                  // },
-                  // items: [
-                  //   BottomNavigationBarItem(
-                  //       icon: Image.asset("assets/images/hom.png"), label: ""),
-                  //   BottomNavigationBarItem(
-                  //       icon: Image.asset("assets/images/wallet.png"),
-                  //       label: ""),
-                  //   BottomNavigationBarItem(
-                  //       icon: Image.asset("assets/images/learn.png"),
-                  //       label: ""),
-                  //   BottomNavigationBarItem(
-                  //       icon: Image.asset("assets/images/earn.png"), label: ""),
-                  // ],
                   indicatorColor: Colors.black,
-
                   onDestinationSelected: (int index) {
                     setState(() {
                       _index = index;
