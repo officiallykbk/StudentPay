@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // THIS SECTION SHOWS THE KEYPAD, WHICH WOULD BE USED TO TYPE AMOUNT
-class KeyPad extends StatelessWidget {
-  const KeyPad({super.key});
 
+class KeyPad extends StatelessWidget {
+  // final TextEditingController textfield;
+  // final Function(String) ontapped;
+  const KeyPad({super.key});
   @override
   Widget build(BuildContext context) {
     List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0, ""];
@@ -16,17 +18,15 @@ class KeyPad extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3),
           itemBuilder: (context, index) {
-            return InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 222, 224, 225),
-                    borderRadius: BorderRadius.circular(50)),
-                alignment: Alignment.center,
-                margin: const EdgeInsets.all(10),
-                child: Text("${digits[index]}",
-                    style: const TextStyle(
-                        fontSize: 40, fontWeight: FontWeight.w300)),
-              ),
+            return Container(
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 222, 224, 225),
+                  borderRadius: BorderRadius.circular(50)),
+              alignment: Alignment.center,
+              margin: const EdgeInsets.all(10),
+              child: Text("${digits[index]}",
+                  style: const TextStyle(
+                      fontSize: 40, fontWeight: FontWeight.w300)),
             );
           },
         ));

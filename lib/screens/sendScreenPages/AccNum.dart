@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'passPage.dart';
 import 'referencepages.dart';
@@ -55,9 +54,12 @@ class _BankNumState extends State<BankNum> {
                   ),
                   height: 35,
                   width: screenWidth - 50,
+                  // make it work with the keypad
                   child: TextFormField(
+                    // controller: textfield,
                     textAlign: TextAlign.center,
                     autocorrect: false,
+                    readOnly: true,
                     decoration: const InputDecoration(
                         hintText: "Account number", border: InputBorder.none),
                     keyboardType: TextInputType.number,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:students_pay/screens/sendScreenPages/AccNum.dart';
 import 'package:students_pay/screens/sendScreenPages/MomoNum.dart';
 import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
@@ -27,25 +26,6 @@ class _SendMoneyState extends State<SendMoney> {
     }
   }
 
-  switcher() {
-    if (selected1 == true) {
-      setState(() {
-        selected2 = false;
-        selected3 = false;
-      });
-    } else if (selected2 == true) {
-      setState(() {
-        selected1 = false;
-        selected3 = false;
-      });
-    } else {
-      setState(() {
-        selected1 = false;
-        selected2 = false;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -70,7 +50,8 @@ class _SendMoneyState extends State<SendMoney> {
                 onTap: () => setState(() {
                   general = 'sTs';
                   selected1 = !selected1;
-                  switcher();
+                  selected2 = false;
+                  selected3 = false;
                   debugPrint("stos");
                 }),
                 child: SendMethod(
@@ -82,7 +63,8 @@ class _SendMoneyState extends State<SendMoney> {
                   onTap: () => setState(() {
                         general = 'Momo';
                         selected2 = !selected2;
-                        switcher();
+                        selected1 = false;
+                        selected3 = false;
                         debugPrint("momo");
                       }),
                   child: SendMethod(
@@ -93,7 +75,8 @@ class _SendMoneyState extends State<SendMoney> {
                   onTap: () => setState(() {
                         general = 'Acc';
                         selected3 = !selected3;
-                        switcher();
+                        selected1 = false;
+                        selected2 = false;
                         debugPrint("acc");
                       }),
                   child: SendMethod(
@@ -130,3 +113,14 @@ class _SendMoneyState extends State<SendMoney> {
     );
   }
 }
+
+
+// const [active, setActive] = useState(false);
+// const handleActiveClick = () => {
+//  setActive(!active);
+// }
+
+
+// <div className={`text-white ${active === true ? 'bg-[white]' : ''}}>
+      
+// </div>
