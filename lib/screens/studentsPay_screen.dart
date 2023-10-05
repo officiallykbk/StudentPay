@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/screens/pay_screens/delivery_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/dress_up_screen.dart';
+import 'package:students_pay/screens/pay_screens/jean_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/payment_methods.dart';
+import 'package:students_pay/screens/pay_screens/pizza_screen.dart';
+import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
+import 'package:students_pay/screens/pay_screens/transaction_screen.dart';
+
+import 'package:students_pay/screens/pay_screens/wallet_screen.dart';
 
 class PayScreen extends StatefulWidget {
   const PayScreen({super.key});
@@ -15,6 +24,7 @@ class _PayScreenState extends State<PayScreen> {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
@@ -69,65 +79,28 @@ class _PayScreenState extends State<PayScreen> {
               ),
               SizedBox(
                 width: width,
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    InkWell(
-                      customBorder: const StadiumBorder(),
-                      splashColor: Colors.white24,
-                      onTap: () {},
-                      child: Container(
-                        constraints: const BoxConstraints(
-                            maxHeight: 50,
-                            maxWidth: 180,
-                            minHeight: 30,
-                            minWidth: 108),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Center(
-                          child: Text(
-                            "My Wallets",
-                            style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w700)),
-                          ),
-                        ),
-                      ),
+                    ButtonWidget(
+                      screen: WalletScreen(),
+                      containerColor: Colors.black,
+                      text: "My Wallets",
+                      textColor: Colors.white,
                     ),
-                    const Spacer(),
-                    InkWell(
-                      customBorder: const StadiumBorder(),
-                      splashColor: Colors.black12,
-                      onTap: () {},
-                      child: Container(
-                        constraints: const BoxConstraints(
-                            maxHeight: 50,
-                            maxWidth: 180,
-                            minHeight: 30,
-                            minWidth: 108),
-                        decoration: BoxDecoration(
-                            border: const Border.fromBorderSide(
-                                BorderSide(style: BorderStyle.solid)),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Center(
-                          child: Text(
-                            "Transactions",
-                            style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w700)),
-                          ),
-                        ),
-                      ),
+                    Spacer(),
+                    ButtonWidget(
+                      screen: TransactionsScreen(),
+                      containerColor: null,
+                      text: "Transactions",
+                      textColor: null,
                     ),
                   ],
                 ),
               ),
               const Spacer(),
               Container(
-                height: height * 0.55,
+                height: height * 0.54,
                 width: width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -161,168 +134,54 @@ class _PayScreenState extends State<PayScreen> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Pizzaman",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Airtime",
+                          icon: Icons.call_outlined,
+                          screen: PurchaseAirtimeScreen(),
                         ),
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Netflix",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Data",
+                          icon: Icons.online_prediction_outlined,
+                          screen: PurchaseAirtimeScreen(),
                         ),
                       ],
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Spotify",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Pizza",
+                          icon: Icons.local_pizza_outlined,
+                          screen: PizzaScreen(),
                         ),
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Udemy",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Delivery",
+                          icon: Icons.local_shipping_outlined,
+                          screen: DeliveryScreen(),
                         ),
                       ],
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Dstv",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Jean Shop",
+                          icon: Icons.local_mall_outlined,
+                          screen: JeanShopScreen(),
                         ),
-                        InkWell(
-                          customBorder: const StadiumBorder(),
-                          splashColor: Colors.black12,
-                          onTap: () {},
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxHeight: 110,
-                                maxWidth: 150,
-                                minHeight: 55,
-                                minWidth: 60),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: const Border.fromBorderSide(
-                                    BorderSide(style: BorderStyle.solid))),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "E-book",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 18),
-                              ),
-                            ),
-                          ),
+                        QuickItem(
+                          text: "Dress up",
+                          icon: Icons.store_outlined,
+                          screen: DressUpScreen(),
                         ),
                       ],
                     )
@@ -333,7 +192,13 @@ class _PayScreenState extends State<PayScreen> {
               InkWell(
                 customBorder: const StadiumBorder(),
                 splashColor: Colors.grey,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const PaymentMethodsScreen(),
+                    ),
+                  );
+                },
                 child: Container(
                   constraints:
                       const BoxConstraints(maxHeight: 40, minHeight: 16),
@@ -350,6 +215,101 @@ class _PayScreenState extends State<PayScreen> {
                 ),
               )
             ]),
+      ),
+    );
+  }
+}
+
+class ButtonWidget extends StatelessWidget {
+  final String text;
+  final Color? textColor;
+  final Widget screen;
+  final Color? containerColor;
+  const ButtonWidget({
+    super.key,
+    required this.text,
+    required this.textColor,
+    required this.containerColor,
+    required this.screen,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      customBorder: const StadiumBorder(),
+      splashColor: Colors.white24,
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => screen),
+        );
+      },
+      child: Container(
+        constraints: const BoxConstraints(
+            maxHeight: 50, maxWidth: 180, minHeight: 30, minWidth: 108),
+        decoration: BoxDecoration(
+            border: Border.all(style: BorderStyle.solid),
+            color: containerColor,
+            borderRadius: BorderRadius.circular(30)),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.inter(
+                textStyle: TextStyle(
+                    color: textColor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class QuickItem extends StatelessWidget {
+  final Widget? screen;
+  final String text;
+  final IconData icon;
+  const QuickItem({
+    super.key,
+    this.screen,
+    required this.text,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      customBorder: const StadiumBorder(),
+      splashColor: Colors.black12,
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => screen!,
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        alignment: Alignment.center,
+        constraints: const BoxConstraints(
+            maxHeight: 110, maxWidth: 150, minHeight: 55, minWidth: 60),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: const Border.fromBorderSide(
+                BorderSide(style: BorderStyle.solid))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(
+              icon,
+              size: 40,
+            ),
+            Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }

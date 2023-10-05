@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:students_pay/screens/home_scren.dart';
 import 'package:students_pay/screens/learn_screen.dart';
@@ -23,72 +21,69 @@ class _NavBarState extends State<NavBar> {
   int _index = 0;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          body: _screens[_index],
-          bottomNavigationBar: Padding(
-            padding:
-                const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Theme(
-                data: ThemeData(canvasColor: Colors.grey.shade800),
-                child: NavigationBar(
-                  height: 58,
-                  indicatorShape: const CircleBorder(),
-                  selectedIndex: _index,
-                  indicatorColor: Colors.black,
-                  onDestinationSelected: (int index) {
-                    setState(() {
-                      _index = index;
-                    });
-                  },
-                  destinations: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: NavigationDestination(
-                          selectedIcon: Image.asset(
-                            "assets/images/hom.png",
-                            color: Colors.white,
-                          ),
-                          icon: Image.asset("assets/images/hom.png"),
-                          label: ""),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: NavigationDestination(
-                          selectedIcon: Image.asset(
-                            "assets/images/wallet.png",
-                            color: Colors.white,
-                          ),
-                          icon: Image.asset("assets/images/wallet.png"),
-                          label: ""),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: NavigationDestination(
-                          selectedIcon: Image.asset(
-                            "assets/images/learn.png",
-                            color: Colors.white,
-                          ),
-                          icon: Image.asset("assets/images/learn.png"),
-                          label: ""),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: NavigationDestination(
-                          selectedIcon: Image.asset(
-                            "assets/images/earn.png",
-                            color: Colors.white,
-                          ),
-                          icon: Image.asset("assets/images/earn.png"),
-                          label: ""),
-                    )
-                  ],
-                ),
+    return Scaffold(
+        body: _screens[_index],
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Theme(
+              data: ThemeData(canvasColor: Colors.grey.shade800),
+              child: NavigationBar(
+                height: 58,
+                indicatorShape: const CircleBorder(),
+                selectedIndex: _index,
+                indicatorColor: Colors.black,
+                onDestinationSelected: (int index) {
+                  setState(() {
+                    _index = index;
+                  });
+                },
+                destinations: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: NavigationDestination(
+                        selectedIcon: Image.asset(
+                          "assets/images/hom.png",
+                          color: Colors.white,
+                        ),
+                        icon: Image.asset("assets/images/hom.png"),
+                        label: ""),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: NavigationDestination(
+                        selectedIcon: Image.asset(
+                          "assets/images/wallet.png",
+                          color: Colors.white,
+                        ),
+                        icon: Image.asset("assets/images/wallet.png"),
+                        label: ""),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: NavigationDestination(
+                        selectedIcon: Image.asset(
+                          "assets/images/learn.png",
+                          color: Colors.white,
+                        ),
+                        icon: Image.asset("assets/images/learn.png"),
+                        label: ""),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: NavigationDestination(
+                        selectedIcon: Image.asset(
+                          "assets/images/earn.png",
+                          color: Colors.white,
+                        ),
+                        icon: Image.asset("assets/images/earn.png"),
+                        label: ""),
+                  )
+                ],
               ),
             ),
-          )),
-    );
+          ),
+        ));
   }
 }
