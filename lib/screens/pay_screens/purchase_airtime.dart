@@ -30,7 +30,9 @@ class _PurchaseAirtimeScreenState extends State<PurchaseAirtimeScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const NavBar(),
+                  builder: (context) => const NavBar(
+                    currentIndex: 1,
+                  ),
                 ),
               );
             },

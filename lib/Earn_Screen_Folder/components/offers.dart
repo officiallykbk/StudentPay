@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SubscriptionOffers extends StatelessWidget {
   const SubscriptionOffers(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.textTwo,
       required this.color});

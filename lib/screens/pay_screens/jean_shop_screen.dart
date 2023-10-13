@@ -20,7 +20,9 @@ class _JeanShopScreenState extends State<JeanShopScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const NavBar(),
+                  builder: (context) => const NavBar(
+                    currentIndex: 1,
+                  ),
                 ),
               );
             },

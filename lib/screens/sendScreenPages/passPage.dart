@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:students_pay/screens/sendScreenPages/summary.dart';
 
 import 'referencepages.dart';

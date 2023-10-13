@@ -20,7 +20,9 @@ class _DressUpScreenState extends State<DressUpScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const NavBar(),
+                  builder: (context) => const NavBar(
+                    currentIndex: 1,
+                  ),
                 ),
               );
             },

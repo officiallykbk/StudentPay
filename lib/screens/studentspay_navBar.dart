@@ -5,24 +5,34 @@ import 'package:students_pay/screens/studentsPay_screen.dart';
 import 'package:students_pay/screens/subscription_screen.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final int currentIndex;
+
+  const NavBar({super.key, required this.currentIndex});
 
   @override
   State<NavBar> createState() => _NavBarState();
 }
 
 class _NavBarState extends State<NavBar> {
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    _currentIndex = widget.currentIndex;
+    super.initState();
+  }
+
   final List<Widget> _screens = [
     const HomeScren(),
     const PayScreen(),
     const LearnScreen(),
     const SubscriptionScreen(),
   ];
-  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _screens[_index],
+        body: _screens[_currentIndex],
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
           child: ClipRRect(
@@ -32,11 +42,11 @@ class _NavBarState extends State<NavBar> {
               child: NavigationBar(
                 height: 58,
                 indicatorShape: const CircleBorder(),
-                selectedIndex: _index,
+                selectedIndex: _currentIndex,
                 indicatorColor: Colors.black,
                 onDestinationSelected: (int index) {
                   setState(() {
-                    _index = index;
+                    _currentIndex = index;
                   });
                 },
                 destinations: [
