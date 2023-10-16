@@ -65,6 +65,7 @@ class _HomeScrenState extends State<HomeScren> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 94.5,
             backgroundColor: Colors.transparent,
             elevation: 0,
