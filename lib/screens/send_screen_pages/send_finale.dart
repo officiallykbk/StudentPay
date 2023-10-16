@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/home_scren.dart';
+// import 'package:students_pay/screens/home_scren.dart';
+import 'package:students_pay/screens/studentspay_navBar.dart';
 
 import 'referencepages.dart';
 
@@ -10,7 +11,7 @@ class Finale extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     opener() {
-      return const HomeScren();
+      return const NavBar();
     }
 
     return Scaffold(
@@ -37,8 +38,9 @@ class Finale extends StatelessWidget {
                   // general == ''
                   //     ? () {}
                   //     :
-                  () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => opener())),
+                  () => Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => opener()),
+                      (route) => false),
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(

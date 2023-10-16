@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:students_pay/screens/sendScreenPages/summary.dart';
-
-import 'referencepages.dart';
+import 'package:students_pay/screens/send_screen_pages/Summary.dart';
+import 'package:students_pay/screens/send_screen_pages/referencepages.dart';
 
 class PassWord extends StatefulWidget {
   const PassWord({
@@ -15,9 +12,16 @@ class PassWord extends StatefulWidget {
 }
 
 class _PassWordState extends State<PassWord> {
+  final TextEditingController textarea = TextEditingController();
   String general = '';
   opener() {
     return const TransSum();
+  }
+
+  ontapped(String text) {
+    setState(() {
+      textarea.text += text;
+    });
   }
 
   @override
@@ -56,6 +60,7 @@ class _PassWordState extends State<PassWord> {
                   height: 35,
                   width: screenWidth - 50,
                   child: TextFormField(
+                    controller: textarea,
                     textAlign: TextAlign.center,
                     autocorrect: false,
                     decoration: const InputDecoration(
@@ -64,7 +69,7 @@ class _PassWordState extends State<PassWord> {
                   ),
                 ),
                 const SizedBox(height: 70),
-                const Expanded(child: KeyPad())
+                Expanded(child: KeyPad(ontapped: ontapped))
               ],
             ),
           )),

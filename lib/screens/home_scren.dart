@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'sendScreenPages/send.dart';
+import 'send_screen_pages/send.dart';
 
 class HomeScren extends StatefulWidget {
   const HomeScren({super.key});
@@ -9,6 +9,7 @@ class HomeScren extends StatefulWidget {
   State<HomeScren> createState() => _HomeScrenState();
 }
 
+// look into wallettec
 class _HomeScrenState extends State<HomeScren> {
   double balance = 20903;
   final List<String> receivernames = [

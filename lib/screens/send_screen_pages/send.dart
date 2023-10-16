@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/sendScreenPages/AccNum.dart';
-import 'package:students_pay/screens/sendScreenPages/MomoNum.dart';
-import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
+import 'package:students_pay/screens/send_screen_pages/acc_num.dart';
+import 'package:students_pay/screens/send_screen_pages/momo_num.dart';
+import 'package:students_pay/screens/send_screen_pages/sTsName.dart';
 import 'referencepages.dart';
 
 class SendMoney extends StatefulWidget {
@@ -95,9 +95,11 @@ class _SendMoneyState extends State<SendMoney> {
                 height: 50,
                 margin: const EdgeInsets.only(bottom: 20),
                 width: screenWidth - 50,
-                decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(Radius.circular(50))),
+                decoration: BoxDecoration(
+                    color: general == ''
+                        ? Colors.black.withOpacity(0.6000000238418579)
+                        : Colors.black,
+                    borderRadius: const BorderRadius.all(Radius.circular(50))),
                 child: const Center(
                   child: Text("Next",
                       style: TextStyle(
@@ -113,14 +115,3 @@ class _SendMoneyState extends State<SendMoney> {
     );
   }
 }
-
-
-// const [active, setActive] = useState(false);
-// const handleActiveClick = () => {
-//  setActive(!active);
-// }
-
-
-// <div className={`text-white ${active === true ? 'bg-[white]' : ''}}>
-      
-// </div>

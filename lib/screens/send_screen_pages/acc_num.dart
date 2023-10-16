@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/sendScreenPages/passPage.dart';
 
+import 'passpage.dart';
 import 'referencepages.dart';
 
-class StudentName extends StatefulWidget {
-  const StudentName({super.key});
+class BankNum extends StatefulWidget {
+  const BankNum({
+    super.key,
+  });
 
   @override
-  State<StudentName> createState() => _StudentNameState();
+  State<BankNum> createState() => _BankNumState();
 }
 
-class _StudentNameState extends State<StudentName> {
-  String general = "";
+class _BankNumState extends State<BankNum> {
+  final TextEditingController textarea = TextEditingController();
+  String general = '';
   opener() {
     return const PassWord();
+  }
+
+  ontapped(String text) {
+    setState(() {
+      textarea.text += text;
+    });
   }
 
   @override
@@ -35,7 +44,7 @@ class _StudentNameState extends State<StudentName> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Enter Student's Name",
+                  "Enter Account Number",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
                 // hello
@@ -52,12 +61,15 @@ class _StudentNameState extends State<StudentName> {
                   ),
                   height: 35,
                   width: screenWidth - 50,
+                  // make it work with the keypad
                   child: TextFormField(
+                    controller: textarea,
                     textAlign: TextAlign.center,
                     autocorrect: false,
+                    readOnly: true,
                     decoration: const InputDecoration(
-                        hintText: "Student's name/username/contact",
-                        border: InputBorder.none),
+                        hintText: "Account number", border: InputBorder.none),
+                    keyboardType: TextInputType.number,
                   ),
                 ),
                 Container(
@@ -107,7 +119,8 @@ class _StudentNameState extends State<StudentName> {
                       ],
                     ),
                   ),
-                )
+                ),
+                Expanded(child: KeyPad(ontapped: ontapped))
               ],
             ),
           )),

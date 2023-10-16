@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:students_pay/screens/send_screen_pages/passpage.dart';
 
-import 'passPage.dart';
 import 'referencepages.dart';
 
-class BankNum extends StatefulWidget {
-  const BankNum({
-    super.key,
-  });
+class StudentName extends StatefulWidget {
+  const StudentName({super.key});
 
   @override
-  State<BankNum> createState() => _BankNumState();
+  State<StudentName> createState() => _StudentNameState();
 }
 
-class _BankNumState extends State<BankNum> {
-  String general = '';
+class _StudentNameState extends State<StudentName> {
+  String general = "";
   opener() {
     return const PassWord();
   }
@@ -37,7 +35,7 @@ class _BankNumState extends State<BankNum> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Enter Account Number",
+                  "Enter Student's Name",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
                 // hello
@@ -54,15 +52,12 @@ class _BankNumState extends State<BankNum> {
                   ),
                   height: 35,
                   width: screenWidth - 50,
-                  // make it work with the keypad
                   child: TextFormField(
-                    // controller: textfield,
                     textAlign: TextAlign.center,
                     autocorrect: false,
-                    readOnly: true,
                     decoration: const InputDecoration(
-                        hintText: "Account number", border: InputBorder.none),
-                    keyboardType: TextInputType.number,
+                        hintText: "Student's name/username/contact",
+                        border: InputBorder.none),
                   ),
                 ),
                 Container(
@@ -112,8 +107,7 @@ class _BankNumState extends State<BankNum> {
                       ],
                     ),
                   ),
-                ),
-                const Expanded(child: KeyPad())
+                )
               ],
             ),
           )),

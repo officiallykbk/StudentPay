@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'passPage.dart';
+import 'passpage.dart';
 import 'referencepages.dart';
 
 class MomoNum extends StatefulWidget {
@@ -11,9 +11,16 @@ class MomoNum extends StatefulWidget {
 }
 
 class _MomoNumState extends State<MomoNum> {
+  final TextEditingController textarea = TextEditingController();
   String general = '';
   opener() {
     return const PassWord();
+  }
+
+  ontapped(String text) {
+    setState(() {
+      textarea.text += text;
+    });
   }
 
   @override
@@ -54,6 +61,8 @@ class _MomoNumState extends State<MomoNum> {
                     width: screenWidth - 50,
                     child: TextFormField(
                       // keyboardAppearance: ,
+                      // readOnly: true,
+                      controller: textarea,
                       textAlign: TextAlign.center,
                       autocorrect: false,
                       decoration: const InputDecoration(
@@ -109,7 +118,7 @@ class _MomoNumState extends State<MomoNum> {
                       ),
                     ),
                   ),
-                  const Expanded(child: KeyPad())
+                  Expanded(child: KeyPad(ontapped: ontapped))
                 ],
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Sendfinale.dart';
+import 'send_finale.dart';
 import 'referencepages.dart';
 
 class TransSum extends StatelessWidget {
