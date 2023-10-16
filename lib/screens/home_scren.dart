@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'send_screen_pages/send.dart';
+import 'package:students_pay/screens/sendScreenPages/send.dart';
 
 class HomeScren extends StatefulWidget {
   const HomeScren({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/send_screen_pages/acc_num.dart';
-import 'package:students_pay/screens/send_screen_pages/momo_num.dart';
-import 'package:students_pay/screens/send_screen_pages/sTsName.dart';
+import 'package:students_pay/screens/sendScreenPages/acc_num.dart';
+import 'package:students_pay/screens/sendScreenPages/momo_num.dart';
+import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
 import 'referencepages.dart';
 
 class SendMoney extends StatefulWidget {

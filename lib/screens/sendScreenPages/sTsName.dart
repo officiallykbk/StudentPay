@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/send_screen_pages/passpage.dart';
+import 'package:students_pay/screens/sendScreenPages/passpage.dart';
 
 import 'referencepages.dart';
 

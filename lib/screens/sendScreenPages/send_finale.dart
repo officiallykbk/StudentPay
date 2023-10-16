@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:students_pay/screens/home_scren.dart';
 import 'package:students_pay/screens/studentspay_navBar.dart';
-
 import 'referencepages.dart';
 
 class Finale extends StatelessWidget {
@@ -11,7 +9,9 @@ class Finale extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     opener() {
-      return const NavBar();
+      return const NavBar(
+        currentIndex: 0,
+      );
     }
 
     return Scaffold(

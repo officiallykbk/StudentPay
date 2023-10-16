@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/send_screen_pages/Summary.dart';
-import 'package:students_pay/screens/send_screen_pages/referencepages.dart';
+import 'package:students_pay/screens/sendScreenPages/Summary.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
 class PassWord extends StatefulWidget {
   const PassWord({
