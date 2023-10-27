@@ -8,20 +8,26 @@ class MicroJobCustomContainer extends StatelessWidget {
       required this.title,
       required this.location,
       required this.eventTitle,
-      required this.eventDescription});
+      required this.eventDescription,
+      required this.color});
   final String title;
   final String location;
   final String eventTitle;
   final String eventDescription;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(
+        left: 15,
+        right: 15,
+      ),
       child: Container(
-        height: screenSize.height / 2.5,
+        height: screenSize.height / 2.9,
         width: screenSize.width,
         decoration: BoxDecoration(
+          color: color,
           border: Border.all(
             color: Color(0xFF859AAC),
             width: 3,
@@ -56,7 +62,7 @@ class MicroJobCustomContainer extends StatelessWidget {
                               title,
                               style: TextStyle(
                                 color: Color(0xFF000000),
-                                fontSize: 18,
+                                fontSize: 19,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -79,24 +85,27 @@ class MicroJobCustomContainer extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Text(
-                eventTitle,
-                style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, top: 15),
+                child: Text(
+                  eventTitle,
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontSize: 21,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 10, top: 5),
+              padding: const EdgeInsets.only(left: 15, top: 5, right: 10),
               child: Text(
                 eventDescription,
                 style: TextStyle(
                   color: Color(0xFF000000),
-                  fontSize: 16,
+                  fontSize: 17,
                   fontWeight: FontWeight.w600,
                 ),
               ),

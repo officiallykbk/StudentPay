@@ -162,9 +162,9 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
               ),
             ),
           ),
-          SizedBox(height: 20),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           MicroJobCustomContainer(
+            color: Color(0xFF7FB6E4),
             title: 'Rap Battle',
             location: 'Brunei Sports Complex',
             eventTitle: 'Ticket Sales',
@@ -173,6 +173,7 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
           ),
           SizedBox(height: 20),
           MicroJobCustomContainer(
+            color: Color(0xFFEBBC66),
             title: 'Microjob Title',
             location: 'Location',
             eventTitle: 'Event Title',
@@ -180,6 +181,7 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
           ),
           SizedBox(height: 20),
           MicroJobCustomContainer(
+            color: Color(0xFFEBBC66),
             title: 'Microjob Title',
             location: 'Location',
             eventTitle: 'Event Title',
@@ -187,6 +189,7 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
           ),
           SizedBox(height: 20),
           MicroJobCustomContainer(
+            color: Color(0xFF75E697),
             title: 'Microjob Title',
             location: 'Location',
             eventTitle: 'Event Title',
@@ -194,6 +197,7 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
           ),
           SizedBox(height: 20),
           MicroJobCustomContainer(
+            color: Color(0xFF46998B),
             title: 'Microjob Title',
             location: 'Location',
             eventTitle: 'Event Title',
