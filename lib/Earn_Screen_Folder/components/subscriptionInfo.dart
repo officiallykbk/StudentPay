@@ -26,26 +26,29 @@ class SubscriptionInfo extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(5), // Adjust the padding as needed
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(0xFFFFFFFF), // Set the border color
-                  width: 1, // Set the border width
+                  color: Color(0xFFFFFFFF),
+                  width: 1,
                 ),
               ),
-              child: icon, // Use the provided Icon widget directly
+              child: icon,
             ),
-            SizedBox(width: 10), // Add some spacing between the icon and text
+            SizedBox(width: 10),
             Flexible(
-              child: Container(
+              child: SizedBox(
+                height: 20,
                 child: Text(
                   info,
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 16,
                     letterSpacing: 0.5,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w700,
                     color: Colors.black,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
               ),
             ),

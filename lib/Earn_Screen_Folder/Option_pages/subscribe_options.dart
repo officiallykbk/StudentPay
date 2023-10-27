@@ -156,10 +156,9 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
             child: SubscriptionInfo(
               info: 'Subscribe to get more points',
               icon: Image.asset(
-                'assets/images/cash.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+                'assets/images/cash.png',
+                width: 24,
+                height: 24,
               ),
             ),
           ),
