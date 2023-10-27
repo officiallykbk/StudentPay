@@ -21,7 +21,7 @@ class SubscriptionOffers extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 5),
       child: Container(
         width: width,
-        height: height * 0.26,
+        height: height * 0.32,
         decoration: BoxDecoration(
             color: color,
             border: const Border.fromBorderSide(
@@ -49,7 +49,7 @@ class SubscriptionOffers extends StatelessWidget {
                           letterSpacing: 0.3,
                           color: Color(0xFF070101),
                           fontSize: 15,
-                          fontWeight: FontWeight.w500))),
+                          fontWeight: FontWeight.w700))),
               SizedBox(
                 height: 40,
               ),
