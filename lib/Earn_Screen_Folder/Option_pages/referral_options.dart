@@ -158,12 +158,8 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: SubscriptionInfo(
                 info: 'Subscribe to get more points',
-                icon: Image.asset(
-                  'assets/images/cash.png', // Replace with your image path
-                  width: 24, // Adjust the width as needed
-                  height: 24, // Adjust the height as needed
-                  // Add any decoration if needed
-                ),
+                icon: Image.asset('assets/images/cash.png',
+                    width: 24, height: 24),
               ),
             ),
             SizedBox(height: 20),
