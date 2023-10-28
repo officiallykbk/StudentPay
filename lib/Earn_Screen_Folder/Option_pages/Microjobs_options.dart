@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/options.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
+import 'package:students_pay/Earn_Screen_Folder/widgets/MicroJobs/Microjob_custom_container.dart';
 
 class MicrojobsOptions extends StatefulWidget {
   const MicrojobsOptions({super.key});
@@ -66,7 +67,10 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
       ),
       body: ListView(
         children: [
-          Savings(),
+          Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
           SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -154,14 +158,57 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
             child: SubscriptionInfo(
               info: 'Subscribe to get more points',
               icon: Image.asset(
-                'assets/images/cash.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+                'assets/images/cash.png',
+                width: 24,
+                height: 24,
               ),
             ),
           ),
+          SizedBox(height: 15),
+          MicroJobCustomContainer(
+            color: Color(0xFF7FB6E4),
+            title: 'Rap Battle',
+            location: 'Brunei Sports Complex',
+            eventTitle: 'Ticket Sales',
+            eventDescription:
+                'Join our Team in selling Our Music Semester events tickets on and off campus from now till 22nd January. you,ve a 50% addition commisiion for you once you hit your target',
+          ),
           SizedBox(height: 20),
+          MicroJobCustomContainer(
+            color: Color(0xFFAAEEB8),
+            title: 'Rap Battle',
+            location: 'Brunei Sports Complex',
+            eventTitle: 'Ticket Sales',
+            eventDescription:
+                'Join our Team in selling Our Music Semester events tickets on and off campus from now till 22nd January. you,ve a 50% addition commisiion for you once you hit your target',
+          ),
+          SizedBox(height: 20),
+          MicroJobCustomContainer(
+            color: Color(0xFF7FB6E4),
+            title: 'Rap Battle',
+            location: 'Brunei Sports Complex',
+            eventTitle: 'Ticket Sales',
+            eventDescription:
+                'Join our Team in selling Our Music Semester events tickets on and off campus from now till 22nd January. you,ve a 50% addition commisiion for you once you hit your target',
+          ),
+          SizedBox(height: 20),
+          MicroJobCustomContainer(
+            color: Color(0xFFF8B190),
+            title: 'Rap Battle',
+            location: 'Brunei Sports Complex',
+            eventTitle: 'Ticket Sales',
+            eventDescription:
+                'Join our Team in selling Our Music Semester events tickets on and off campus from now till 22nd January. you,ve a 50% addition commisiion for you once you hit your target',
+          ),
+          SizedBox(height: 20),
+          MicroJobCustomContainer(
+            color: Color(0xFFFF9494),
+            title: 'Rap Battle',
+            location: 'Brunei Sports Complex',
+            eventTitle: 'Ticket Sales',
+            eventDescription:
+                'Join our Team in selling Our Music Semester events tickets on and off campus from now till 22nd January. you,ve a 50% addition commisiion for you once you hit your target',
+          ),
         ],
       ),
     );

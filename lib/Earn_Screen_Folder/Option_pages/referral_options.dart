@@ -73,7 +73,10 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
         },
         child: ListView(
           children: [
-            Savings(),
+            Savings(
+              title: 'Your Savings Balance',
+              savingsAmount: '\$15,903.',
+            ),
             SizedBox(height: 15),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,

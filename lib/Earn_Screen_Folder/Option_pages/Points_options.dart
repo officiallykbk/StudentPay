@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,7 +68,10 @@ class _PontsPageState extends State<PointsOptionPage> {
       ),
       body: ListView(
         children: [
-          Savings(),
+          Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
           SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
