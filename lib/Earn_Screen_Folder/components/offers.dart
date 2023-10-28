@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/diamond_offer.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/gold_offer.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/silver_offer.dart';
 
 class SubscriptionOffers extends StatelessWidget {
@@ -9,10 +11,12 @@ class SubscriptionOffers extends StatelessWidget {
       {super.key,
       required this.text,
       required this.textTwo,
-      required this.color});
+      required this.color,
+      required this.index});
   final String text;
   final String textTwo;
   final Color color;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +60,22 @@ class SubscriptionOffers extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SilverOffer()));
+                  if (index == 0) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SilverOffer()));
+                  } else if (index == 1) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DiamondOffer()));
+                  } else if (index == 2) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GoldOffer()));
+                  }
                 },
                 child: Container(
                   width: width * 0.8,

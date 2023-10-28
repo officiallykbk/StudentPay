@@ -9,9 +9,11 @@ class SubscriptionContainer extends StatelessWidget {
     Key? key,
     required this.title,
     required this.savingsAmount,
+    required this.color,
   }) : super(key: key);
   final String title;
   final double savingsAmount;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -25,6 +27,7 @@ class SubscriptionContainer extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
+              color: color,
               borderRadius: BorderRadius.circular(27),
               border:
                   Border.all(width: 1, color: Colors.black.withOpacity(0.20))),

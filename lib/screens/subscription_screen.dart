@@ -161,18 +161,21 @@ class SubscriptionScreen extends StatelessWidget {
           Column(
             children: [
               SubscriptionOffers(
+                index: 0,
                 color: Color(0x73C6D7F1),
                 text: 'GHC 50 Offer',
                 textTwo:
                     'Start earning up to 1000 a month including no transaction fees, except withdrawing from the platform to another platform',
               ),
               SubscriptionOffers(
+                index: 1,
                 color: Color(0xFFC5F3D6),
                 text: 'GHC 150 Offer',
                 textTwo:
                     'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
               ),
               SubscriptionOffers(
+                index: 2,
                 color: Color(0xFFFAF6D3),
                 text: 'GHC 300 Offer',
                 textTwo:

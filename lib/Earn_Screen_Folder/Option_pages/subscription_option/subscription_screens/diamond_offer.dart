@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_widget/subscription_custom_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 
-class SilverOffer extends StatelessWidget {
-  const SilverOffer({super.key});
+class DiamondOffer extends StatelessWidget {
+  const DiamondOffer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,8 @@ class SilverOffer extends StatelessWidget {
                 ),
               ),
               SubscriptionContainer(
-                  color: Colors.grey[700]!,
-                  title: 'Silver Offer',
+                  color: Color(0x4ECCE290),
+                  title: 'Diamond Offer',
                   savingsAmount: 34),
               Padding(
                 padding: const EdgeInsets.only(left: 22, top: 15),
