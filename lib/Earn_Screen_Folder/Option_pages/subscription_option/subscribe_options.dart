@@ -68,7 +68,10 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
       ),
       body: ListView(
         children: [
-          Savings(),
+          Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
           SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -141,10 +144,9 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: SubscriptionInfo(
               icon: Image.asset(
-                'assets/images/offer.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+                'assets/images/offer.png',
+                width: 24,
+                height: 24,
               ),
               info:
                   'Start earning up to 1000 a month including no transaction fees',

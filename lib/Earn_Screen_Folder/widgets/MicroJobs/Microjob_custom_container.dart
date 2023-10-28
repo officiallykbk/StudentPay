@@ -47,6 +47,31 @@ class MicroJobCustomContainer extends StatelessWidget {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(1, 2),
+                          spreadRadius: 1,
+                          blurRadius: 14,
+                          color: Colors.grey.shade900,
+                        ),
+                        BoxShadow(
+                          offset: Offset(-1, -2),
+                          spreadRadius: 1,
+                          blurRadius: 15,
+                          color: Colors.grey.shade600,
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Colors.grey.shade300,
+                            Colors.grey.shade600,
+                          ],
+                          stops: [
+                            0.1,
+                            0.9
+                          ]),
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(25),
                     ),
@@ -57,7 +82,7 @@ class MicroJobCustomContainer extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 10, right: 70, bottom: 5),
+                                top: 10, right: 60, bottom: 5),
                             child: Text(
                               title,
                               style: TextStyle(

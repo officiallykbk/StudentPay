@@ -4,23 +4,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Savings extends StatelessWidget {
-  const Savings({
+class SubscriptionContainer extends StatelessWidget {
+  const SubscriptionContainer({
     Key? key,
     required this.title,
     required this.savingsAmount,
   }) : super(key: key);
   final String title;
-  final String savingsAmount;
-
+  final double savingsAmount;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.only(top: 30, left: 15, right: 15),
+      padding: EdgeInsets.only(top: 10, left: 15, right: 15),
       child: SizedBox(
-        height: 150,
+        height: 140,
         child: Container(
           padding: EdgeInsets.only(left: 1, top: 10, bottom: 10),
           width: width,
@@ -32,16 +31,29 @@ class Savings extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 5, left: 10),
-                child: Text(
-                  title,
-                  style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500)),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 10),
+                    child: Text(
+                      title,
+                      style: GoogleFonts.inter(
+                          textStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 19,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.bookmark_remove_outlined),
+                      iconSize: 30,
+                    ),
+                  )
+                ],
               ),
               SizedBox(
                 height: 3,
@@ -51,7 +63,7 @@ class Savings extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      savingsAmount,
+                      savingsAmount.toString(),
                       style: GoogleFonts.inter(
                           textStyle: const TextStyle(
                               color: Colors.black,

@@ -68,7 +68,10 @@ class _PontsPageState extends State<PointsOptionPage> {
       ),
       body: ListView(
         children: [
-          Savings(),
+          Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
           SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
