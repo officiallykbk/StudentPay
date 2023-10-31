@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'passpage.dart';
 import 'referencepages.dart';
 
@@ -19,10 +18,18 @@ class _BankNumState extends State<BankNum> {
     return const PassWord();
   }
 
+  bool maxlengthreached = false;
   ontapped(String text) {
-    setState(() {
-      textarea.text += text;
-    });
+    if (!maxlengthreached) {
+      setState(() {
+        if (textarea.text.length < 10) {
+          textarea.text += text;
+        }
+      });
+    }
+    if (textarea.text.length > 10) {
+      maxlengthreached = true;
+    }
   }
 
   @override
@@ -47,30 +54,10 @@ class _BankNumState extends State<BankNum> {
                   "Enter Account Number",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
-                // hello
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        color: Colors.black.withOpacity(0.20000000298023224),
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  height: 35,
-                  width: screenWidth - 50,
-                  // make it work with the keypad
-                  child: TextFormField(
-                    controller: textarea,
-                    textAlign: TextAlign.center,
-                    autocorrect: false,
-                    readOnly: true,
-                    decoration: const InputDecoration(
-                        hintText: "Account number", border: InputBorder.none),
-                    keyboardType: TextInputType.number,
-                  ),
+                NumTextfield(
+                  0,
+                  varController: textarea,
+                  purpose: "Account Number",
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width - 50,
@@ -95,7 +82,7 @@ class _BankNumState extends State<BankNum> {
                         Column(
                           children: [
                             const Text(
-                              'Glover Smith',
+                              'Republic Bank',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -120,11 +107,9 @@ class _BankNumState extends State<BankNum> {
                     ),
                   ),
                 ),
-                Expanded(child: KeyPad(ontapped: ontapped))
               ],
             ),
           )),
-          // const Spacer(),
           GestureDetector(
             onTap:
                 // general == ''

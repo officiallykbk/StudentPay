@@ -18,10 +18,18 @@ class _PassWordState extends State<PassWord> {
     return const TransSum();
   }
 
+  bool maxlengthreached = false;
   ontapped(String text) {
-    setState(() {
-      textarea.text += text;
-    });
+    if (!maxlengthreached) {
+      setState(() {
+        if (textarea.text.length < 10) {
+          textarea.text += text;
+        }
+      });
+    }
+    if (textarea.text.length > 10) {
+      maxlengthreached = true;
+    }
   }
 
   @override
@@ -39,41 +47,19 @@ class _PassWordState extends State<PassWord> {
           Expanded(
               child: Align(
             alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Enter Password",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        color: Colors.black.withOpacity(0.20000000298023224),
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  height: 35,
-                  width: screenWidth - 50,
-                  child: TextFormField(
-                    controller: textarea,
-                    textAlign: TextAlign.center,
-                    autocorrect: false,
-                    decoration: const InputDecoration(
-                        hintText: "Password", border: InputBorder.none),
-                    keyboardType: TextInputType.number,
-                  ),
-                ),
-                const SizedBox(height: 70),
-                Expanded(child: KeyPad(ontapped: ontapped))
-              ],
-            ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const Text(
+                "Enter Password",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
+              NumTextfield(
+                0,
+                varController: textarea,
+                purpose: "Password",
+              ),
+            ]),
           )),
-          // const Spacer(),
           GestureDetector(
             onTap:
                 //general == ''

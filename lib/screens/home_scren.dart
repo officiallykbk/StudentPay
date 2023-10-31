@@ -12,6 +12,8 @@ class HomeScren extends StatefulWidget {
 // look into wallettec
 class _HomeScrenState extends State<HomeScren> {
   double balance = 20903;
+  // String formattedBalance;
+  DateTime hello = DateTime.now();
   final List<String> receivernames = [
     "Tether",
     "Liam",
@@ -63,20 +65,35 @@ class _HomeScrenState extends State<HomeScren> {
   ];
   @override
   Widget build(BuildContext context) {
+    int currentHour = hello.hour;
+    String? greetings;
+    if (currentHour < 12) {
+      setState(() {
+        greetings = 'Good Morning';
+      });
+    } else if (currentHour < 18) {
+      setState(() {
+        greetings = 'Good Afternoon';
+      });
+    } else {
+      setState(() {
+        greetings = 'Good Evening';
+      });
+    }
     return Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: false,
             toolbarHeight: 94.5,
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: const Row(
+            title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   child: Icon(Icons.run_circle),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Column(
@@ -84,11 +101,11 @@ class _HomeScrenState extends State<HomeScren> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // TO BE REPLACED BY DATE DETERMINING FUNCTION
-                    Text("Good Morning",
-                        style: TextStyle(
+                    Text("$greetings",
+                        style: const TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w400)),
                     // TO BE REPLACED BY NAME DETERMING FUNCTION
-                    Text("Travis White",
+                    const Text("Travis White",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w700))
                   ],

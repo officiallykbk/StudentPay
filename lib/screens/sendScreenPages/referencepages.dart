@@ -2,40 +2,82 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // THIS SECTION SHOWS THE KEYPAD, WHICH WOULD BE USED TO TYPE AMOUNT
-
-// ontapped(text) {
-//   return text;
+// class KeyPad extends StatelessWidget {
+//   final Function ontapped;
+//   const KeyPad({super.key, required this.ontapped});
+//   @override
+//   Widget build(BuildContext context) {
+//     List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0, ""];
+//     return Container(
+//         width: MediaQuery.of(context).size.width - 50,
+//         margin: const EdgeInsets.all(5),
+//         child: GridView.builder(
+//           itemCount: 12,
+//           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//               crossAxisCount: 3),
+//           itemBuilder: (context, index) {
+//             return InkWell(
+//               onTap: () => ontapped("${digits[index]}"),
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                     color: const Color.fromARGB(255, 222, 224, 225),
+//                     borderRadius: BorderRadius.circular(50)),
+//                 alignment: Alignment.center,
+//                 margin: const EdgeInsets.all(10),
+//                 child: Text("${digits[index]}",
+//                     style: const TextStyle(
+//                         fontSize: 30, fontWeight: FontWeight.w700)),
+//               ),
+//             );
+//           },
+//         ));
+//   }
 // }
 
-class KeyPad extends StatelessWidget {
-  final Function ontapped;
-  const KeyPad({super.key, required this.ontapped});
+// THIS SECTION IS MEANT TO ADJUST THE NUMBER TEXT AREAS
+class NumTextfield extends StatefulWidget {
+  final TextEditingController varController;
+  // SETTING A STOP FOR THE NUMBER OF CHARACTERS ONE CAN ENTER
+  final int maxnumber;
+  // USED TO PICK THE HINT TEXT OF THE TEXTAREA
+  final String purpose;
+  const NumTextfield(this.maxnumber,
+      {super.key, required this.varController, required this.purpose});
+
+  @override
+  State<NumTextfield> createState() => _NumTextfieldState();
+}
+
+class _NumTextfieldState extends State<NumTextfield> {
   @override
   Widget build(BuildContext context) {
-    List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0, ""];
     return Container(
-        width: MediaQuery.of(context).size.width - 50,
-        margin: const EdgeInsets.all(5),
-        child: GridView.builder(
-          itemCount: 12,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3),
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () => ontapped("${digits[index]}"),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 222, 224, 225),
-                    borderRadius: BorderRadius.circular(50)),
-                alignment: Alignment.center,
-                margin: const EdgeInsets.all(10),
-                child: Text("${digits[index]}",
-                    style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w300)),
-              ),
-            );
-          },
-        ));
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            width: 1,
+            color: Colors.black.withOpacity(0.20000000298023224),
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      height: 30,
+      width: MediaQuery.of(context).size.width - 50,
+      child: TextFormField(
+        controller: widget.varController,
+        style: const TextStyle(
+          fontWeight: FontWeight.w700,
+        ),
+        textAlign: TextAlign.center,
+        autocorrect: false,
+        decoration: InputDecoration(
+          hintText: widget.purpose,
+          border: InputBorder.none,
+        ),
+        keyboardType: TextInputType.number,
+      ),
+    );
   }
 }
 
@@ -105,14 +147,11 @@ class AppTop extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      leading: GestureDetector(
-        onTap: () => Navigator.of(context).pop(),
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: SvgPicture.asset("assets/svgassets/back_button.svg"),
-        ),
-      ),
+      leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back_ios_new)),
       title: Text(name,
           style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black)),
@@ -140,102 +179,3 @@ class Progress extends StatelessWidget {
     );
   }
 }
-
-// class QuickSend extends StatelessWidget {
-//   final String qname;
-//   const QuickSend({super.key, required this.qname});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         width: 44,
-//         height: 60,
-//         child: const Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             CircleAvatar(child: Icon(Icons.person)),
-//             Text(qname,
-//                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400))
-//           ],
-//         ));
-//   }
-// }
-
-// Column(
-//                         crossAxisAlignment: CrossAxisAlignment.start,
-//                         mainAxisAlignment: MainAxisAlignment.center,
-//                         children: [
-//                           CircleAvatar(child: Icon(Icons.person)),
-//                           Text("James",
-//                               style: TextStyle(
-//                                   fontSize: 12, fontWeight: FontWeight.w400))
-//                         ],
-//                       )
-
-
-
-// class LastPage extends StatelessWidget {
-//   const LastPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(child: 
-//     Container(
-//             decoration: BoxDecoration(
-//                 border: Border.all(width: 1),
-//                 borderRadius: const BorderRadius.all(Radius.circular(20))),
-//             width: 350,
-//             height: 60,
-//             child: const Expanded(
-//                 child: Row(
-//               children: [
-//                 SizedBox(width: 10),
-//                 CircleAvatar(child: Icon(Icons.person)),
-//                 SizedBox(width: 5),
-//                 Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Text("Barry Allen",
-//                         style: TextStyle(
-//                             fontSize: 15, fontWeight: FontWeight.w700)),
-//                     SizedBox(height: 5),
-//                     Text("0205543177",
-//                         style: TextStyle(
-//                             fontSize: 12, fontWeight: FontWeight.w400))
-//                   ],
-//                 )
-//               ],
-//             )),
-//           ),
-//           Container(
-//             width: 350,
-//             height: 150,
-//             margin: const EdgeInsets.only(left: 25, right: 25),
-//             child: const Center(
-//               child:
-//                   // TO BE REPLACED BY INPUT LISTENER
-//                   Text("Wait",
-//                       style:
-//                           TextStyle(fontSize: 40, fontWeight: FontWeight.w700)),
-//             ),
-//           ),
-//           // Keypad session
-//           const Expanded(
-//             child: KeyPad(),
-//           ),
-
-//           Container(
-//             height: 50,
-//             padding: const EdgeInsets.all(8),
-//             width: 350,
-//             decoration: const BoxDecoration(
-//                 color: Colors.blue,
-//                 borderRadius: BorderRadius.all(Radius.circular(50))),
-//             child: const Text("Send",
-//                 textAlign: TextAlign.center,
-//                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600)),
-//           ));
-//   }
-// }

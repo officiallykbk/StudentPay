@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'passpage.dart';
 import 'referencepages.dart';
 
@@ -11,16 +10,24 @@ class MomoNum extends StatefulWidget {
 }
 
 class _MomoNumState extends State<MomoNum> {
-  final TextEditingController textarea = TextEditingController();
   String general = '';
+  final TextEditingController textarea = TextEditingController();
   opener() {
     return const PassWord();
   }
 
+  bool maxlengthreached = false;
   ontapped(String text) {
-    setState(() {
-      textarea.text += text;
-    });
+    if (!maxlengthreached) {
+      setState(() {
+        if (textarea.text.length < 10) {
+          textarea.text += text;
+        }
+      });
+    }
+    if (textarea.text.length > 10) {
+      maxlengthreached = true;
+    }
   }
 
   @override
@@ -44,31 +51,6 @@ class _MomoNumState extends State<MomoNum> {
                   const Text(
                     "Enter Mobile Number",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                  ),
-                  // hello
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 1,
-                          color: Colors.black.withOpacity(0.20000000298023224),
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    height: 35,
-                    width: screenWidth - 50,
-                    child: TextFormField(
-                      // keyboardAppearance: ,
-                      // readOnly: true,
-                      controller: textarea,
-                      textAlign: TextAlign.center,
-                      autocorrect: false,
-                      decoration: const InputDecoration(
-                          hintText: "Mobile number", border: InputBorder.none),
-                      keyboardType: TextInputType.number,
-                    ),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width - 50,
@@ -118,12 +100,10 @@ class _MomoNumState extends State<MomoNum> {
                       ),
                     ),
                   ),
-                  Expanded(child: KeyPad(ontapped: ontapped))
                 ],
               ),
             ),
           ),
-          // const Spacer(),
           GestureDetector(
             onTap:
                 //general == ''
