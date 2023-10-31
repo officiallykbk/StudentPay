@@ -1,10 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/options.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
+import 'package:students_pay/Earn_Screen_Folder/widgets/Points_screen_widget/points_screen_container.dart';
+import 'package:students_pay/Earn_Screen_Folder/widgets/custom_rounded_button.dart';
 
 class PointsOptionPage extends StatefulWidget {
   const PointsOptionPage({super.key});
@@ -66,7 +68,10 @@ class _PontsPageState extends State<PointsOptionPage> {
       ),
       body: ListView(
         children: [
-          Savings(),
+          Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
           SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -139,10 +144,9 @@ class _PontsPageState extends State<PointsOptionPage> {
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: SubscriptionInfo(
               icon: Image.asset(
-                'assets/images/offer.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+                'assets/images/offer.png',
+                width: 24,
+                height: 24,
               ),
               info:
                   'Start earning up to 1000 a month including no transaction fees',
@@ -154,14 +158,46 @@ class _PontsPageState extends State<PointsOptionPage> {
             child: SubscriptionInfo(
               info: 'Subscribe to get more points',
               icon: Image.asset(
-                'assets/images/cash.png', // Replace with your image path
-                width: 24, // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-                // Add any decoration if needed
+                'assets/images/cash.png',
+                width: 24,
+                height: 24,
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: SubscriptionInfo(
+              info: 'Subscribe to get more points',
+              icon: Image.asset(
+                'assets/images/cash.png',
+                width: 24,
+                height: 24,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  //create a container with aborder of width 3 and outlineborder of  color grey with texts ina column inside it let the container be height 200 and width 120 and wrap the container with  a singlechildscrollview
+                  PointsScreenContainer(),
+                  PointsScreenContainer(),
+                  PointsScreenContainer(),
+                  PointsScreenContainer(),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          CustomRoundedButton(),
+          SizedBox(
+            height: 30,
+          ),
         ],
       ),
     );

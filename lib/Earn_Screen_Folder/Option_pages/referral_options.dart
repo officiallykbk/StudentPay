@@ -73,7 +73,10 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
         },
         child: ListView(
           children: [
-            Savings(),
+            Savings(
+              title: 'Your Savings Balance',
+              savingsAmount: '\$15,903.',
+            ),
             SizedBox(height: 15),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -158,12 +161,8 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: SubscriptionInfo(
                 info: 'Subscribe to get more points',
-                icon: Image.asset(
-                  'assets/images/cash.png', // Replace with your image path
-                  width: 24, // Adjust the width as needed
-                  height: 24, // Adjust the height as needed
-                  // Add any decoration if needed
-                ),
+                icon: Image.asset('assets/images/cash.png',
+                    width: 24, height: 24),
               ),
             ),
             SizedBox(height: 20),
@@ -175,7 +174,65 @@ class _ReferralOptionPageState extends State<ReferralOptionPage> {
                   textTwo:
                       'Earn up to 1500 coins every 5 friends you share your referral code with',
                   color: Color(0xFFC5F3D6),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 17,
+                    top: 20,
+                  ),
+                  child: Row(
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: InkWell(
+                          customBorder: StadiumBorder(),
+                          splashColor: Colors.black,
+                          onTap: () {},
+                          child: Container(
+                            height: 60,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: const Border.fromBorderSide(
+                                BorderSide(style: BorderStyle.solid),
+                              ),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.arrow_back_ios_new),
+                                  color: Colors.white,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 30),
+                                  child: Text(
+                                    'Subscribe',
+                                    style: GoogleFonts.inter(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.content_copy),
+                        iconSize: 50,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ],
@@ -205,7 +262,7 @@ class ReferralVoucherField extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 5),
       child: Container(
         width: width,
-        height: height * 0.28,
+        height: height * 0.32,
         decoration: BoxDecoration(
             color: color,
             border: const Border.fromBorderSide(
@@ -221,7 +278,7 @@ class ReferralVoucherField extends StatelessWidget {
                 style: GoogleFonts.inter(
                     textStyle: const TextStyle(
                         color: Color(0xFF070101),
-                        fontSize: 20,
+                        fontSize: 21,
                         fontWeight: FontWeight.w900)),
               ),
               SizedBox(
@@ -232,8 +289,8 @@ class ReferralVoucherField extends StatelessWidget {
                       textStyle: const TextStyle(
                           letterSpacing: 0.3,
                           color: Color(0xFF070101),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500))),
+                          fontSize: 16.5,
+                          fontWeight: FontWeight.w700))),
               SizedBox(
                 height: 15,
               ),
@@ -265,18 +322,18 @@ class VoucherField extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none, // Remove the solid border
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          fillColor: Colors.white,
-          filled: true,
-          hintText: hintText,
-        ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide.none, // Remove the solid border
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            fillColor: Colors.white,
+            filled: true,
+            hintText: hintText,
+            hintStyle: TextStyle(fontWeight: FontWeight.bold)),
       ),
     );
   }

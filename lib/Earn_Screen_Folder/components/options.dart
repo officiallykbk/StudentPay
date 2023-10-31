@@ -6,7 +6,7 @@ import 'package:students_pay/Earn_Screen_Folder/Option_pages/Microjobs_options.d
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/Points_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/challenges_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_options.dart';
-import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscribe_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscribe_options.dart';
 
 class OptionsField extends StatelessWidget {
   final void Function(int) updateSelectedIndex; // Callback function
