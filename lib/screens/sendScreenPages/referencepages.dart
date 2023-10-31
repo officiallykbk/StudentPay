@@ -1,39 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-// THIS SECTION SHOWS THE KEYPAD, WHICH WOULD BE USED TO TYPE AMOUNT
-// class KeyPad extends StatelessWidget {
-//   final Function ontapped;
-//   const KeyPad({super.key, required this.ontapped});
-//   @override
-//   Widget build(BuildContext context) {
-//     List<dynamic> digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0, ""];
-//     return Container(
-//         width: MediaQuery.of(context).size.width - 50,
-//         margin: const EdgeInsets.all(5),
-//         child: GridView.builder(
-//           itemCount: 12,
-//           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//               crossAxisCount: 3),
-//           itemBuilder: (context, index) {
-//             return InkWell(
-//               onTap: () => ontapped("${digits[index]}"),
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                     color: const Color.fromARGB(255, 222, 224, 225),
-//                     borderRadius: BorderRadius.circular(50)),
-//                 alignment: Alignment.center,
-//                 margin: const EdgeInsets.all(10),
-//                 child: Text("${digits[index]}",
-//                     style: const TextStyle(
-//                         fontSize: 30, fontWeight: FontWeight.w700)),
-//               ),
-//             );
-//           },
-//         ));
-//   }
-// }
-
 // THIS SECTION IS MEANT TO ADJUST THE NUMBER TEXT AREAS
 class NumTextfield extends StatefulWidget {
   final TextEditingController varController;
