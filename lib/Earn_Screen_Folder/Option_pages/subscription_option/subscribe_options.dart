@@ -14,7 +14,11 @@ class SubscribeOptionPage extends StatefulWidget {
   State<SubscribeOptionPage> createState() => _SubscribeOptionState();
 }
 
-class _SubscribeOptionState extends State<SubscribeOptionPage> {
+class _SubscribeOptionState extends State<SubscribeOptionPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   int? selectedIndex;
 
   void updateSelectedIndex(int newIndex) {
@@ -25,6 +29,7 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -196,19 +201,7 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
                   textTwo:
                       'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
                 ),
-                SizedBox(height: 50),
-                Text(
-                  "Your Balance",
-                  style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.w400)),
-                ),
-                Text(
-                  "Your Balance",
-                  style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.w400)),
-                ),
+                SizedBox(height: 150),
               ],
             ),
           ],

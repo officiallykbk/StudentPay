@@ -16,7 +16,10 @@ class SubscriptionScreen extends StatefulWidget {
   State<SubscriptionScreen> createState() => _SubscriptionScreenState();
 }
 
-class _SubscriptionScreenState extends State<SubscriptionScreen> {
+class _SubscriptionScreenState extends State<SubscriptionScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   // ignore: unused_field
   int _selectedOptionIndex = 0;
   PageController _pageController = PageController(initialPage: 0);
@@ -42,6 +45,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     Size screensize = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
@@ -57,6 +61,9 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                   children: _optionPages,
                 ),
               ),
+              Container(
+                height: 50,
+              )
             ],
           ),
         ),
