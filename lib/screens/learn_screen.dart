@@ -27,6 +27,7 @@ class _LearnScreenState extends State<LearnScreen> {
 
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           elevation: 0,
           title:
