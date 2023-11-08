@@ -11,15 +11,12 @@ class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({
     super.key,
   });
-// Define a callback function to update selectedIndex
-  void updateSelectedIndex(int index) {
-    // Update the selectedIndex here
-    // You can implement any logic you need to handle the index update
-  }
+  void updateSelectedIndex(int index) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
