@@ -61,9 +61,6 @@ class _SubscriptionScreenState extends State<SubscriptionScreen>
                   children: _optionPages,
                 ),
               ),
-              Container(
-                height: 50,
-              )
             ],
           ),
         ),

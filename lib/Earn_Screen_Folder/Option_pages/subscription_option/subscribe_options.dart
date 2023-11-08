@@ -33,6 +33,11 @@ class _SubscribeOptionState extends State<SubscribeOptionPage>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           elevation: 0,
           backgroundColor: Colors.white,
           title: Text(
@@ -194,14 +199,7 @@ class _SubscribeOptionState extends State<SubscribeOptionPage>
                   textTwo:
                       'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
                 ),
-                SubscriptionOffers(
-                  index: 2,
-                  color: Color(0xFFFAF6D3),
-                  text: 'GHC 100 Offer',
-                  textTwo:
-                      'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
-                ),
-                SizedBox(height: 150),
+                SizedBox(height: 100),
               ],
             ),
           ],
