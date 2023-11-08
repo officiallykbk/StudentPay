@@ -17,6 +17,7 @@ class SubscriptionScreen extends StatefulWidget {
 }
 
 class _SubscriptionScreenState extends State<SubscriptionScreen> {
+  // ignore: unused_field
   int _selectedOptionIndex = 0;
   PageController _pageController = PageController(initialPage: 0);
 
@@ -41,124 +42,24 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size screensize = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   elevation: 0,
-      //   backgroundColor: Colors.white,
-      //   title: Text(
-      //     "Earn",
-      //     style: GoogleFonts.inter(
-      //       textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-      //     ),
-      //   ),
-      //   actions: [
-      //     Row(
-      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //       children: [
-      //         const SizedBox(
-      //           height: 40,
-      //           width: 23,
-      //           child: Image(
-      //             image: AssetImage("assets/images/star1.png"),
-      //           ),
-      //         ),
-      //         Text(
-      //           "17,537",
-      //           style: GoogleFonts.inter(
-      //             textStyle: TextStyle(
-      //               fontWeight: FontWeight.w600,
-      //               fontSize: 17,
-      //             ),
-      //           ),
-      //         ),
-      //         SizedBox(
-      //           width: 1,
-      //         ),
-      //         IconButton(
-      //           onPressed: () {},
-      //           icon: const Icon(Icons.notifications),
-      //         ),
-      //       ],
-      //     )
-      //   ],
-      // ),
-      body: ListView(
-        children: [
-          Container(
-            height: 800,
-            child: PageView(
-              controller: _pageController,
-              scrollDirection: Axis.horizontal,
-              children: _optionPages,
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: screensize.height,
+                child: PageView(
+                  controller: _pageController,
+                  scrollDirection: Axis.horizontal,
+                  scrollBehavior: ScrollBehavior(),
+                  children: _optionPages,
+                ),
+              ),
+            ],
           ),
-          // Savings(
-          //   title: 'Your Savings Balance',
-          //   savingsAmount: '\$15,903.',
-          // ),
-          // SizedBox(height: 15),
-          // SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   child: Row(
-          //     children: [
-          //       Padding(
-          //         padding: const EdgeInsets.only(left: 16),
-          //         child: OptionsField(
-          //           currentUser: 0,
-          //           updateSelectedIndex: updateSelectedIndex,
-          //           index: 0,
-          //           options: 'Subscribe',
-          //         ),
-          //       ),
-          //       SizedBox(
-          //         width: 7,
-          //       ),
-          //       OptionsField(
-          //         currentUser: 0,
-          //         updateSelectedIndex: updateSelectedIndex,
-          //         index: 1,
-          //         options: 'Referral',
-          //       ),
-          //       SizedBox(
-          //         width: 7,
-          //       ),
-          //       OptionsField(
-          //         currentUser: 0,
-          //         updateSelectedIndex: updateSelectedIndex,
-          //         index: 2,
-          //         options: 'Points',
-          //       ),
-          //       SizedBox(
-          //         width: 7,
-          //       ),
-          //       OptionsField(
-          //         currentUser: 0,
-          //         updateSelectedIndex: updateSelectedIndex,
-          //         index: 3,
-          //         options: 'Microjobs',
-          //       ),
-          //       SizedBox(
-          //         width: 7,
-          //       ),
-          //       OptionsField(
-          //         currentUser: 0,
-          //         updateSelectedIndex: updateSelectedIndex,
-          //         index: 4,
-          //         options: 'Challenge',
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // Container(
-          //   height: 400,
-          //   child: PageView(
-          //     controller: _pageController,
-          //     scrollDirection: Axis.horizontal,
-          //     children: _optionPages,
-          //   ),
-          // ),
-        ],
+        ),
       ),
     );
   }
