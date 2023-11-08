@@ -184,7 +184,7 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
               SubscriptionOffers(
                 index: 2,
                 color: Color(0xFFFAF6D3),
-                text: 'GHC 300 Offer',
+                text: 'GHC 600 Offer',
                 textTwo:
                     'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
               ),

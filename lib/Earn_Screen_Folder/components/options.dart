@@ -40,7 +40,6 @@ class OptionsField extends StatelessWidget {
               customBorder: StadiumBorder(),
               splashColor: Colors.black,
               onTap: () {
-                // Call the callback function with the index when tapped
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => _optionPages[(index)]));
               },
