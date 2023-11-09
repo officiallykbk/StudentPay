@@ -7,6 +7,7 @@ import 'package:students_pay/Earn_Screen_Folder/Option_pages/Points_options.dart
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/challenges_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscribe_options.dart';
+import 'package:students_pay/screens/studentspay_navBar.dart';
 
 class OptionsField extends StatelessWidget {
   final void Function(int) updateSelectedIndex; // Callback function
@@ -40,9 +41,24 @@ class OptionsField extends StatelessWidget {
               customBorder: StadiumBorder(),
               splashColor: Colors.black,
               onTap: () {
-                // Call the callback function with the index when tapped
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => _optionPages[(index)]));
+                  MaterialPageRoute(
+                    builder: (_) => WillPopScope(
+                      onWillPop: () async {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBar(
+                              currentIndex: 0,
+                            ),
+                          ),
+                        );
+                        return false;
+                      },
+                      child: _optionPages[index],
+                    ),
+                  ),
+                );
               },
               child: Container(
                 width: width * 0.3,
