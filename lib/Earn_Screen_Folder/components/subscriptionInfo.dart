@@ -15,7 +15,7 @@ class SubscriptionInfo extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: height * 0.08,
+      height: height * 0.13,
       width: width,
       child: Container(
         padding: EdgeInsets.all(15),
@@ -26,27 +26,27 @@ class SubscriptionInfo extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(5), // Adjust the padding as needed
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(0xFFFFFFFF), // Set the border color
-                  width: 1, // Set the border width
+                  color: Color(0xFFFFFFFF),
+                  width: 1,
                 ),
               ),
-              child: icon, // Use the provided Icon widget directly
+              child: icon,
             ),
-            SizedBox(width: 10), // Add some spacing between the icon and text
-            Flexible(
-              child: Container(
-                child: Text(
-                  info,
-                  style: TextStyle(
-                    fontSize: 15,
-                    letterSpacing: 0.5,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+            SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                info,
+                style: TextStyle(
+                  fontSize: 16,
+                  letterSpacing: 0.5,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
                 ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 4,
               ),
             ),
           ],

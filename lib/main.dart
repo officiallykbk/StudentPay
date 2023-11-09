@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:students_pay/screens/studentspay_navBar.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const NavBar(),
+      home: const NavBar(
+        currentIndex: 0,
+      ),
     );
   }
 }

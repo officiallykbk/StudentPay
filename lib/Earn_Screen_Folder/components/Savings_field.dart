@@ -1,25 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Savings extends StatefulWidget {
-  const Savings({super.key});
+class Savings extends StatelessWidget {
+  const Savings({
+    Key? key,
+    required this.title,
+    required this.savingsAmount,
+  }) : super(key: key);
+  final String title;
+  final String savingsAmount;
 
-  @override
-  State<Savings> createState() => _SavingsState();
-}
-
-class _SavingsState extends State<Savings> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.only(
-          top: 30,
-          left: 15,
-          right: 15), // Adjust the top padding value as needed
+      padding: EdgeInsets.only(top: 30, left: 15, right: 15),
       child: SizedBox(
         height: 150,
         child: Container(
@@ -36,7 +35,7 @@ class _SavingsState extends State<Savings> {
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 10),
                 child: Text(
-                  'Your Savings Balance',
+                  title,
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           color: Colors.black,
@@ -52,7 +51,7 @@ class _SavingsState extends State<Savings> {
                 child: Row(
                   children: [
                     Text(
-                      '\$15,903.',
+                      savingsAmount,
                       style: GoogleFonts.inter(
                           textStyle: const TextStyle(
                               color: Colors.black,

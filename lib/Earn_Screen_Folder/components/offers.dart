@@ -2,16 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/diamond_offer.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/gold_offer.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/silver_offer.dart';
 
 class SubscriptionOffers extends StatelessWidget {
   const SubscriptionOffers(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.textTwo,
-      required this.color});
+      required this.color,
+      required this.index});
   final String text;
   final String textTwo;
   final Color color;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class SubscriptionOffers extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 5),
       child: Container(
         width: width,
-        height: height * 0.26,
+        height: height * 0.32,
         decoration: BoxDecoration(
             color: color,
             border: const Border.fromBorderSide(
@@ -49,26 +54,46 @@ class SubscriptionOffers extends StatelessWidget {
                           letterSpacing: 0.3,
                           color: Color(0xFF070101),
                           fontSize: 15,
-                          fontWeight: FontWeight.w500))),
+                          fontWeight: FontWeight.w700))),
               SizedBox(
                 height: 40,
               ),
-              Container(
-                width: width * 0.8,
-                height: height * 0.06,
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    border: const Border.fromBorderSide(
-                        BorderSide(style: BorderStyle.solid)),
-                    borderRadius: BorderRadius.circular(30)),
-                child: Center(
-                  child: Text(
-                    "Subscribe",
-                    style: GoogleFonts.inter(
-                        textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600)),
+              GestureDetector(
+                onTap: () {
+                  if (index == 0) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SilverOffer()));
+                  } else if (index == 1) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DiamondOffer()));
+                  } else if (index == 2) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GoldOffer()));
+                  }
+                },
+                child: Container(
+                  width: width * 0.8,
+                  height: height * 0.06,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      border: const Border.fromBorderSide(
+                          BorderSide(style: BorderStyle.solid)),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Center(
+                    child: Text(
+                      "Subscribe",
+                      style: GoogleFonts.inter(
+                          textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600)),
+                    ),
                   ),
                 ),
               ),
