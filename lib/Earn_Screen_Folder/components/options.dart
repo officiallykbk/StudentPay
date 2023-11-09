@@ -60,25 +60,6 @@ class OptionsField extends StatelessWidget {
                   ),
                 );
               },
-
-              // onTap: () {
-              //   Navigator.of(context).push(
-              //     MaterialPageRoute(
-              //       builder: (_) => WillPopScope(
-              //         onWillPop: () async {
-              //           if (index == 0) {
-              //             Navigator.popUntil(context, (route) => false);
-              //           }
-              //           return true;
-              //         },
-              //         child: Scaffold(
-              //           appBar: index == 0 ? AppBar() : null,
-              //           body: _optionPages[index],
-              //         ),
-              //       ),
-              //     ),
-              //   );
-              // },
               child: Container(
                 width: width * 0.3,
                 height: 45,
