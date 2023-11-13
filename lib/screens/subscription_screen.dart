@@ -1,11 +1,14 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/Microjobs_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/Points_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/challenges_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscribe_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
+
+var _selectedIndex = 0;
+String selected = "Subscribe";
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({
@@ -16,52 +19,169 @@ class SubscriptionScreen extends StatefulWidget {
   State<SubscriptionScreen> createState() => _SubscriptionScreenState();
 }
 
-class _SubscriptionScreenState extends State<SubscriptionScreen>
-    with AutomaticKeepAliveClientMixin {
-  @override
-  bool get wantKeepAlive => true;
-  // ignore: unused_field
-  int _selectedOptionIndex = 0;
-  PageController _pageController = PageController(initialPage: 0);
-
-  void updateSelectedIndex(int index) {
-    setState(() {
-      _selectedOptionIndex = index;
-      _pageController.animateToPage(
-        index,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.ease,
-      );
-    });
-  }
-
-  final List<Widget> _optionPages = [
-    SubscribeOptionPage(),
-    ReferralOptionPage(),
-    PointsOptionPage(),
-    MicrojobsOptions(),
-    ChallengeOptions(),
-  ];
-
+class _SubscriptionScreenState extends State<SubscriptionScreen> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-    Size screensize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: screensize.height,
-                child: PageView(
-                  controller: _pageController,
-                  scrollDirection: Axis.horizontal,
-                  scrollBehavior: ScrollBehavior(),
-                  children: _optionPages,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: Text(
+            "Earn",
+            style: GoogleFonts.inter(
+              textStyle:
+                  const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+            ),
+          ),
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SizedBox(
+                  height: 40,
+                  width: 23,
+                  child: Image(
+                    image: AssetImage("assets/images/star1.png"),
+                  ),
                 ),
+                Text(
+                  "17,537",
+                  style: GoogleFonts.inter(
+                    textStyle: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 1,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.notifications),
+                ),
+              ],
+            )
+          ],
+        ),
+        body: SafeArea(
+            child: SingleChildScrollView(
+                child: Column(children: [
+          const Savings(
+            title: 'Your Savings Balance',
+            savingsAmount: '\$15,903.',
+          ),
+          const SizedBox(height: 15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: optionsField(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = 0;
+                        selected = "Subscribe";
+                      });
+                    },
+                    options: 'Subscribe',
+                  ),
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                optionsField(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 1;
+                      selected = "Referral";
+                    });
+                  },
+                  options: 'Referral',
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                optionsField(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                      selected = "Points";
+                    });
+                  },
+                  options: 'Points',
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                optionsField(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 3;
+                      selected = "Microjobs";
+                    });
+                  },
+                  options: 'Microjobs',
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                optionsField(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 4;
+                      selected = "Challenge";
+                    });
+                  },
+                  options: 'Challenge',
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          _selectedIndex == 0
+              ? const SubscribeOptionPage()
+              : _selectedIndex == 1
+                  ? const ReferralOptionPage()
+                  : _selectedIndex == 2
+                      ? const PointsOptionPage()
+                      : _selectedIndex == 3
+                          ? const MicrojobsOptions()
+                          : _selectedIndex == 4
+                              ? const ChallengeOptions()
+                              : const SizedBox()
+        ]))));
+  }
+
+  Widget optionsField({required String options, required Function()? onTap}) {
+    var width = MediaQuery.of(context).size.width;
+
+    return InkWell(
+      customBorder: const StadiumBorder(),
+      splashColor: Colors.black,
+      onTap: onTap,
+      child: Container(
+        width: width * 0.3,
+        height: 45,
+        decoration: BoxDecoration(
+          color: selected == options ? Colors.black : Colors.transparent,
+          border: const Border.fromBorderSide(
+            BorderSide(style: BorderStyle.solid),
+          ),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Center(
+          child: Text(
+            options,
+            style: GoogleFonts.inter(
+              textStyle: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: selected == options ? Colors.white : Colors.black,
               ),
-            ],
+            ),
           ),
         ),
       ),
