@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^6.0.0
   google_nav_bar: ^5.0.6
   intl: ^0.18.1
+  fl_chart: ^0.64.0
 
 dev_dependencies:
   flutter_test:

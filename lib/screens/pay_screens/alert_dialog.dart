@@ -42,7 +42,9 @@ class ShowAlertDialog extends StatelessWidget {
             Expanded(
               child: InkWell(
                 borderRadius: BorderRadius.circular(24),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
                 child: Container(
                   alignment: Alignment.center,
                   height: 50,

@@ -28,7 +28,7 @@ class _WalletScreenState extends State<WalletScreen> {
             },
             icon: const Icon(CupertinoIcons.back)),
         title: Text(
-          "My Wallet",
+          "My Wallets",
           style: GoogleFonts.inter(
               textStyle:
                   const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),

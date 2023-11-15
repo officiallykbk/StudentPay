@@ -103,10 +103,12 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       border: Border.all(style: BorderStyle.solid)),
                   width: width,
                   child: TextField(
+                    autocorrect: false,
+                    autofocus: false,
+                    enableSuggestions: false,
                     style: GoogleFonts.inter(
                         textStyle: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
-                    readOnly: true,
                     showCursor: true,
                     controller: _controller,
                     decoration: const InputDecoration(
@@ -115,53 +117,6 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   ),
                 ),
                 const Spacer(),
-                Container(
-                    alignment: Alignment.center,
-                    height: height * 0.40,
-                    width: width,
-                    decoration: BoxDecoration(
-                      border: Border.all(style: BorderStyle.solid),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: width * 0.8,
-                              child: Table(
-                                children: [
-                                  TableRow(children: [
-                                    buildButton(buttonText: "1"),
-                                    buildButton(buttonText: "2"),
-                                    buildButton(buttonText: "3"),
-                                  ]),
-                                  TableRow(children: [
-                                    buildButton(buttonText: "4"),
-                                    buildButton(buttonText: "5"),
-                                    buildButton(buttonText: "6"),
-                                  ]),
-                                  TableRow(children: [
-                                    buildButton(buttonText: "7"),
-                                    buildButton(buttonText: "8"),
-                                    buildButton(buttonText: "9"),
-                                  ]),
-                                  TableRow(children: [
-                                    buildButton(buttonText: "."),
-                                    buildButton(buttonText: "0"),
-                                    buildButton(buttonText: "x"),
-                                  ]),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    )),
-                const SizedBox(
-                  height: 15,
-                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(

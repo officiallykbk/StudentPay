@@ -121,7 +121,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             ),
             const Divider(),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pop();
+              },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 14.0),
                 child: Container(
