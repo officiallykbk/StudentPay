@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/amount_screen.dart';
+import 'package:students_pay/screens/pay_screens/airtime/airtime_confirmation.dart';
 
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
+import 'package:students_pay/screens/pay_screens/airtime/purchase_airtime.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class VendorCodeScreen extends StatefulWidget {
-  const VendorCodeScreen({super.key});
+class AirtimePasswordScreen extends StatefulWidget {
+  const AirtimePasswordScreen({super.key});
 
   @override
-  State<VendorCodeScreen> createState() => _VendorCodeScreenState();
+  State<AirtimePasswordScreen> createState() => _AirtimePasswordScreenState();
 }
 
-class _VendorCodeScreenState extends State<VendorCodeScreen> {
+class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
   TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -31,44 +31,13 @@ class _VendorCodeScreenState extends State<VendorCodeScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
-
-    buttonPressed({required String buttonText}) {
-      setState(() {
-        if (buttonText == "x") {
-          _controller.text =
-              _controller.text.substring(0, _controller.text.length - 1);
-        } else {
-          _controller.text = _controller.text + buttonText;
-        }
-      });
-    }
-
-    Widget buildButton({required String buttonText}) {
-      return InkWell(
-        radius: 2,
-        borderRadius: BorderRadius.circular(30),
-        onTap: () => buttonPressed(buttonText: buttonText),
-        child: Container(
-          margin: const EdgeInsets.all(12),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-          height: 50,
-          alignment: Alignment.center,
-          child: Text(
-            buttonText,
-            style: const TextStyle(color: Colors.black, fontSize: 40),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const PaymentMethodsScreen(),
+                    builder: (context) => const PurchaseAirtimeScreen(),
                   ),
                 );
               },
@@ -86,19 +55,15 @@ class _VendorCodeScreenState extends State<VendorCodeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Progress(indicator: 0.4),
-                const SizedBox(
-                  height: 15,
-                ),
+                const Progress(indicator: 0.6),
+                const SizedBox(height: 15),
                 Text(
-                  "Enter Short Code",
+                  "Enter Password",
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                const SizedBox(height: 15),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   alignment: Alignment.center,
@@ -108,10 +73,12 @@ class _VendorCodeScreenState extends State<VendorCodeScreen> {
                       border: Border.all(style: BorderStyle.solid)),
                   width: width,
                   child: TextField(
+                    autocorrect: false,
+                    autofocus: false,
+                    enableSuggestions: false,
                     style: GoogleFonts.inter(
                         textStyle: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
-                    readOnly: true,
                     showCursor: true,
                     controller: _controller,
                     decoration: const InputDecoration(border: InputBorder.none),
@@ -122,7 +89,7 @@ class _VendorCodeScreenState extends State<VendorCodeScreen> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (centext) => const AmountScreen(),
+                        builder: (context) => const AirtimeConfirmationScreen(),
                       ),
                     );
                   },

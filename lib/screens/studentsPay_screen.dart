@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/delivery_shop_screen.dart';
-import 'package:students_pay/screens/pay_screens/dress_up_screen.dart';
-import 'package:students_pay/screens/pay_screens/jean_shop_screen.dart';
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
-import 'package:students_pay/screens/pay_screens/pizza_screen.dart';
-import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
-import 'package:students_pay/screens/pay_screens/transaction_screen.dart';
+import 'package:students_pay/screens/pay_screens/airtime/purchase_airtime.dart';
+import 'package:students_pay/screens/pay_screens/delivery/delivery_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/dress_up/dress_up_screen.dart';
+import 'package:students_pay/screens/pay_screens/jean_shop/jean_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/pay/payment_types_screen.dart';
 
-import 'package:students_pay/screens/pay_screens/wallet_screen.dart';
+import 'package:students_pay/screens/pay_screens/pizza/pizza_screen.dart';
+import 'package:students_pay/screens/pay_screens/transaction/transaction_screen.dart';
+
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_screen.dart';
 
 class PayScreen extends StatefulWidget {
   const PayScreen({super.key});
@@ -195,7 +196,7 @@ class _PayScreenState extends State<PayScreen> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const PaymentMethodsScreen(),
+                      builder: (context) => const PaymentTypesScreen(),
                     ),
                   );
                 },

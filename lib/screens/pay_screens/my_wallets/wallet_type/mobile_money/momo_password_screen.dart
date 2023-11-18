@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/password_screen.dart';
-
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/mobile_money/add_mom_number_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/mobile_money/momo_verification_screen.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class AmountScreen extends StatefulWidget {
-  const AmountScreen({super.key});
+class MomoPasswordScreen extends StatefulWidget {
+  const MomoPasswordScreen({super.key});
 
   @override
-  State<AmountScreen> createState() => _AmountScreenState();
+  State<MomoPasswordScreen> createState() => _MomoPasswordScreenState();
 }
 
-class _AmountScreenState extends State<AmountScreen> {
+class _MomoPasswordScreenState extends State<MomoPasswordScreen> {
   TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -31,36 +30,6 @@ class _AmountScreenState extends State<AmountScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
-
-    buttonPressed({required String buttonText}) {
-      setState(() {
-        if (buttonText == "x") {
-          _controller.text =
-              _controller.text.substring(0, _controller.text.length - 1);
-        } else {
-          _controller.text = _controller.text + buttonText;
-        }
-      });
-    }
-
-    Widget buildButton({required String buttonText}) {
-      return InkWell(
-        radius: 2,
-        borderRadius: BorderRadius.circular(30),
-        onTap: () => buttonPressed(buttonText: buttonText),
-        child: Container(
-          margin: const EdgeInsets.all(12),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-          height: 50,
-          alignment: Alignment.center,
-          child: Text(
-            buttonText,
-            style: const TextStyle(color: Colors.black, fontSize: 40),
-          ),
-        ),
-      );
-    }
 
     return Scaffold(
         appBar: AppBar(
@@ -68,13 +37,13 @@ class _AmountScreenState extends State<AmountScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const PaymentMethodsScreen(),
+                    builder: (context) => const AddMomoNumberScreen(),
                   ),
                 );
               },
               icon: const Icon(CupertinoIcons.back)),
           title: Text(
-            "Pay",
+            "Wallet",
             style: GoogleFonts.inter(
                 textStyle:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
@@ -86,18 +55,33 @@ class _AmountScreenState extends State<AmountScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Progress(indicator: 0.5),
+                const Progress(indicator: 0.7),
                 const SizedBox(
                   height: 15,
                 ),
                 Text(
-                  "Enter Amount",
+                  "Enter Password",
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 8,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: "xxxxxxx"),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
                 ),
                 Container(
                   padding: const EdgeInsets.all(2),
@@ -116,7 +100,11 @@ class _AmountScreenState extends State<AmountScreen> {
                           color: Colors.blueGrey,
                           shape: BoxShape.circle,
                         )),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Glover Smith",
@@ -129,37 +117,12 @@ class _AmountScreenState extends State<AmountScreen> {
                     )
                   ]),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 145,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(style: BorderStyle.solid)),
-                  width: width,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80.0),
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
-                      style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.w700)),
-                      showCursor: true,
-                      controller: _controller,
-                      decoration:
-                          const InputDecoration(border: InputBorder.none),
-                    ),
-                  ),
-                ),
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const PasswordScreen(),
+                        builder: (context) => const MomoVerificationScreen(),
                       ),
                     );
                   },

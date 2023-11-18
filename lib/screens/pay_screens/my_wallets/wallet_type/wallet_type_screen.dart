@@ -1,30 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/scan_qr_screen.dart';
-import 'package:students_pay/screens/pay_screens/short_code_screen.dart';
-import 'package:students_pay/screens/pay_screens/student_name_screen.dart';
-import 'package:students_pay/screens/pay_screens/tap_N_pay_screen.dart';
-import 'package:students_pay/screens/pay_screens/vendor_code_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/bank/bank_wallet_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/mobile_money/momo_wallet_screen.dart';
+
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/students_pay/studentsPay_wallet_screen.dart';
+
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-import 'package:students_pay/screens/studentspay_navBar.dart';
-
-class PaymentMethodsScreen extends StatefulWidget {
-  const PaymentMethodsScreen({super.key});
+class WalletTypeScreen extends StatefulWidget {
+  const WalletTypeScreen({super.key});
 
   @override
-  State<PaymentMethodsScreen> createState() => _PaymentMethodsScreenState();
+  State<WalletTypeScreen> createState() => _WalletTypeScreenState();
 }
 
-class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
+class _WalletTypeScreenState extends State<WalletTypeScreen> {
   String general = '';
   bool selected1 = false;
   bool selected2 = false;
   bool selected3 = false;
-  bool selected4 = false;
-  bool selected5 = false;
   bool isVisible = false;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -34,15 +32,13 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const NavBar(
-                    currentIndex: 1,
-                  ),
+                  builder: (context) => const WalletScreen(),
                 ),
               );
             },
             icon: const Icon(CupertinoIcons.back)),
         title: Text(
-          "Pay",
+          "Wallet",
           style: GoogleFonts.inter(
               textStyle:
                   const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
@@ -59,7 +55,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
               height: 15,
             ),
             Text(
-              "Payment Method",
+              "Type of Wallet",
               style: GoogleFonts.inter(
                   textStyle: const TextStyle(
                       fontSize: 24, fontWeight: FontWeight.w700)),
@@ -73,13 +69,10 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                       selected1 = !selected1;
                       selected2 = false;
                       selected3 = false;
-                      selected4 = false;
-                      selected5 = false;
                       isVisible = true;
-                      debugPrint("stos");
                     }),
                 child: _paymentMethod(
-                    title: "Name of Student",
+                    title: "Students Pay ",
                     isSelected: selected1,
                     icon: Icons.person)),
             GestureDetector(
@@ -88,14 +81,10 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                       selected1 = false;
                       selected2 = true;
                       selected3 = false;
-                      selected4 = false;
-                      selected5 = false;
                       isVisible = true;
-
-                      debugPrint("stos");
                     }),
                 child: _paymentMethod(
-                    title: "Short Code",
+                    title: "Mobile Money Wallet",
                     isSelected: selected2,
                     icon: Icons.payment)),
             GestureDetector(
@@ -104,49 +93,12 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                       selected1 = false;
                       selected2 = false;
                       selected3 = true;
-                      selected4 = false;
-                      selected5 = false;
                       isVisible = true;
-
-                      debugPrint("stos");
                     }),
                 child: _paymentMethod(
-                    title: "Vendor Code",
+                    title: "Bank Wallet",
                     isSelected: selected3,
                     icon: Icons.telegram)),
-            GestureDetector(
-                onTap: () => setState(() {
-                      general = '4';
-                      selected1 = false;
-                      selected2 = false;
-                      selected3 = false;
-                      selected4 = true;
-                      selected5 = false;
-                      isVisible = true;
-
-                      debugPrint("stos");
-                    }),
-                child: _paymentMethod(
-                    title: "Scan Qr Code",
-                    isSelected: selected4,
-                    icon: Icons.scanner)),
-            GestureDetector(
-                onTap: () => setState(() {
-                      general = '5';
-                      selected1 = !selected1;
-                      selected1 = false;
-                      selected2 = false;
-                      selected3 = false;
-                      selected4 = false;
-                      selected5 = true;
-                      isVisible = true;
-
-                      debugPrint("stos");
-                    }),
-                child: _paymentMethod(
-                    title: "Tap N Pay",
-                    isSelected: selected5,
-                    icon: Icons.tap_and_play)),
             const Spacer(),
             Container(
               width: width,
@@ -218,15 +170,11 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
 
   Widget switchToScreen() {
     if (general == "1") {
-      return const StudentNameScreen();
+      return const StudentsPayWalletScreen();
     } else if (general == "2") {
-      return const ShortCodeScreen();
-    } else if (general == "3") {
-      return const VendorCodeScreen();
-    } else if (general == "4") {
-      return const ScanQrCodeScreen();
+      return const MomoWalletScreen();
     } else {
-      return const TapNPayScreen();
+      return const BankWalletScreen();
     }
   }
 }

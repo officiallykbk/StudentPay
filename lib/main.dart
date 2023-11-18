@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/studentspay_navBar.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

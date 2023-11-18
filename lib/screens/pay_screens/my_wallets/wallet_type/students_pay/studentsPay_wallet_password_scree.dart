@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/amount_screen.dart';
-import 'package:students_pay/screens/pay_screens/confirmation_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/students_pay/studentsPay_wallet_screen.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class PasswordScreen extends StatefulWidget {
-  const PasswordScreen({super.key});
+class StudentsPayPasswordScreen extends StatefulWidget {
+  const StudentsPayPasswordScreen({super.key});
 
   @override
-  State<PasswordScreen> createState() => _PasswordScreenState();
+  State<StudentsPayPasswordScreen> createState() =>
+      _StudentsPayPasswordScreenState();
 }
 
-class _PasswordScreenState extends State<PasswordScreen> {
+class _StudentsPayPasswordScreenState extends State<StudentsPayPasswordScreen> {
   TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -29,51 +29,19 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
-
-    buttonPressed({required String buttonText}) {
-      setState(() {
-        if (buttonText == "x") {
-          _controller.text =
-              _controller.text.substring(0, _controller.text.length - 1);
-        } else {
-          _controller.text = _controller.text + buttonText;
-        }
-      });
-    }
-
-    Widget buildButton({required String buttonText}) {
-      return InkWell(
-        radius: 2,
-        borderRadius: BorderRadius.circular(30),
-        onTap: () => buttonPressed(buttonText: buttonText),
-        child: Container(
-          margin: const EdgeInsets.all(12),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-          height: 50,
-          alignment: Alignment.center,
-          child: Text(
-            buttonText,
-            style: const TextStyle(color: Colors.black, fontSize: 40),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const AmountScreen(),
+                    builder: (context) => const StudentsPayWalletScreen(),
                   ),
                 );
               },
               icon: const Icon(CupertinoIcons.back)),
           title: Text(
-            "Pay",
+            "Wallet",
             style: GoogleFonts.inter(
                 textStyle:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
@@ -93,15 +61,14 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  alignment: Alignment.center,
-                  height: 34,
+                  padding: const EdgeInsets.only(left: 8, top: 4),
+                  height: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(style: BorderStyle.solid)),
-                  width: width,
+                      border: Border.all()),
+                  width: double.infinity,
                   child: TextField(
                     autocorrect: false,
                     autofocus: false,
@@ -112,24 +79,17 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     showCursor: true,
                     controller: _controller,
                     decoration: const InputDecoration(
-                      border: InputBorder.none,
-                    ),
+                        border: InputBorder.none, hintText: "xxxxxxx"),
                   ),
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ConfirmationScreen(),
-                      ),
-                    );
-                  },
+                  onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 14.0),
                     child: Container(
                       height: 50,
-                      width: width,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(0, 0, 0, 1),
                           borderRadius: BorderRadius.circular(24)),

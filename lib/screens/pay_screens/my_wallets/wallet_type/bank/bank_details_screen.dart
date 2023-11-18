@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/airtime_confirmation.dart';
-
-import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/bank/bank_password_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/bank/bank_wallet_screen.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class AirtimePasswordScreen extends StatefulWidget {
-  const AirtimePasswordScreen({super.key});
+class BankDetailsScreen extends StatefulWidget {
+  const BankDetailsScreen({super.key});
 
   @override
-  State<AirtimePasswordScreen> createState() => _AirtimePasswordScreenState();
+  State<BankDetailsScreen> createState() => _BankDetailsScreenState();
 }
 
-class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
+class _BankDetailsScreenState extends State<BankDetailsScreen> {
   TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -31,7 +30,6 @@ class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
         appBar: AppBar(
@@ -39,13 +37,13 @@ class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const PurchaseAirtimeScreen(),
+                    builder: (context) => const BankWalletScreen(),
                   ),
                 );
               },
               icon: const Icon(CupertinoIcons.back)),
           title: Text(
-            "Pay",
+            "Wallet",
             style: GoogleFonts.inter(
                 textStyle:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
@@ -57,33 +55,53 @@ class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Progress(indicator: 0.6),
-                const SizedBox(height: 15),
+                const Progress(indicator: 0.5),
+                const SizedBox(
+                  height: 15,
+                ),
                 Text(
-                  "Enter Password",
+                  "Enter Account Number",
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(
+                  height: 8,
+                ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  alignment: Alignment.center,
-                  height: 34,
+                  height: 50,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(style: BorderStyle.solid)),
-                  width: width,
-                  child: TextField(
-                    autocorrect: false,
-                    autofocus: false,
-                    enableSuggestions: false,
-                    style: GoogleFonts.inter(
-                        textStyle: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    showCursor: true,
-                    controller: _controller,
-                    decoration: const InputDecoration(border: InputBorder.none),
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: "3244242320*****"),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  "Branch",
+                  style: GoogleFonts.inter(
+                      textStyle: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w700)),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: "Oforikrom"),
                   ),
                 ),
                 const Spacer(),
@@ -91,7 +109,7 @@ class _AirtimePasswordScreenState extends State<AirtimePasswordScreen> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const AirtimeConfirmationScreen(),
+                        builder: (context) => const BankPasswordScreen(),
                       ),
                     );
                   },

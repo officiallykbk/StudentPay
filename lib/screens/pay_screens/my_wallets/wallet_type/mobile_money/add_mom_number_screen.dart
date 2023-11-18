@@ -1,27 +1,19 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/mobile_money/momo_password_screen.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/mobile_money/momo_wallet_screen.dart';
 
-import 'package:students_pay/screens/pay_screens/airtime_password_screen.dart';
-import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-// ignore: must_be_immutable
-class AmountOfAirtimeScreen extends StatefulWidget {
-  String text;
-  String imgSrc;
-  AmountOfAirtimeScreen({
-    Key? key,
-    required this.imgSrc,
-    required this.text,
-  }) : super(key: key);
+class AddMomoNumberScreen extends StatefulWidget {
+  const AddMomoNumberScreen({super.key});
 
   @override
-  State<AmountOfAirtimeScreen> createState() => _AmountOfAirtimeScreenState();
+  State<AddMomoNumberScreen> createState() => _AddMomoNumberScreenState();
 }
 
-class _AmountOfAirtimeScreenState extends State<AmountOfAirtimeScreen> {
+class _AddMomoNumberScreenState extends State<AddMomoNumberScreen> {
   TextEditingController _controller = TextEditingController();
   @override
   void initState() {
@@ -38,7 +30,6 @@ class _AmountOfAirtimeScreenState extends State<AmountOfAirtimeScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
         appBar: AppBar(
@@ -46,13 +37,13 @@ class _AmountOfAirtimeScreenState extends State<AmountOfAirtimeScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const PurchaseAirtimeScreen(),
+                    builder: (context) => const MomoWalletScreen(),
                   ),
                 );
               },
               icon: const Icon(CupertinoIcons.back)),
           title: Text(
-            "Pay",
+            "Wallet",
             style: GoogleFonts.inter(
                 textStyle:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
@@ -69,13 +60,28 @@ class _AmountOfAirtimeScreenState extends State<AmountOfAirtimeScreen> {
                   height: 15,
                 ),
                 Text(
-                  "Enter Amount",
+                  "Enter Phone Number",
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 8,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: "05490*****"),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
                 ),
                 Container(
                   padding: const EdgeInsets.all(2),
@@ -86,65 +92,37 @@ class _AmountOfAirtimeScreenState extends State<AmountOfAirtimeScreen> {
                       border: Border.all(style: BorderStyle.solid)),
                   width: width,
                   child: Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: CircleAvatar(
-                        child: Image.asset(
-                          widget.imgSrc,
-                          filterQuality: FilterQuality.high,
-                        ),
-                      ),
+                    Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 9.0),
+                        height: 40,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                          color: Colors.blueGrey,
+                          shape: BoxShape.circle,
+                        )),
+                    const SizedBox(
+                      width: 8,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.text,
-                            style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w700)),
-                          ),
-                          const Text("878 784 xxx"),
-                        ],
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Glover Smith",
+                          style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w400)),
+                        ),
+                        const Text("878 784 xxx"),
+                      ],
                     )
                   ]),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 145,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(style: BorderStyle.solid)),
-                  width: width,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80.0),
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      autocorrect: false,
-                      autofocus: false,
-                      enableSuggestions: false,
-                      style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.w700)),
-                      showCursor: true,
-                      controller: _controller,
-                      decoration:
-                          const InputDecoration(border: InputBorder.none),
-                    ),
-                  ),
                 ),
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const AirtimePasswordScreen(),
+                        builder: (context) => const MomoPasswordScreen(),
                       ),
                     );
                   },

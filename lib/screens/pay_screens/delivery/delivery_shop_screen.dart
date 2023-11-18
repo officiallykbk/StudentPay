@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:students_pay/screens/studentspay_navBar.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
-class WalletScreen extends StatefulWidget {
-  const WalletScreen({super.key});
+class DeliveryScreen extends StatefulWidget {
+  const DeliveryScreen({super.key});
 
   @override
-  State<WalletScreen> createState() => _WalletScreenState();
+  State<DeliveryScreen> createState() => _DeliveryScreenState();
 }
 
-class _WalletScreenState extends State<WalletScreen> {
+class _DeliveryScreenState extends State<DeliveryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class _WalletScreenState extends State<WalletScreen> {
             },
             icon: const Icon(CupertinoIcons.back)),
         title: Text(
-          "My Wallets",
+          "Delivery",
           style: GoogleFonts.inter(
               textStyle:
                   const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),

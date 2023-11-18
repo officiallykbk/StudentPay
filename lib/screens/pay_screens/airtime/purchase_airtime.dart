@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/airtime_amount_screen.dart';
-
+import 'package:students_pay/screens/pay_screens/airtime/airtime_amount_screen.dart';
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
-
-import 'package:students_pay/screens/studentspay_navBar.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
 class PurchaseAirtimeScreen extends StatefulWidget {
   const PurchaseAirtimeScreen({super.key});
@@ -170,17 +168,17 @@ class _PurchaseAirtimeScreenState extends State<PurchaseAirtimeScreen> {
 
   Widget switchToScreen() {
     if (general == "Mtn") {
-      return AmountOfAirtimeScreen(
+      return const AmountOfAirtimeScreen(
         text: "Mtn",
         imgSrc: "assets/images/mtn.png",
       );
     } else if (general == "Vodafone") {
-      return AmountOfAirtimeScreen(
+      return const AmountOfAirtimeScreen(
         text: "Vodafone",
         imgSrc: "assets/images/vodafone.png",
       );
     } else {
-      return AmountOfAirtimeScreen(
+      return const AmountOfAirtimeScreen(
         text: "Airtel / Tigo",
         imgSrc: "assets/images/airtel.png",
       );

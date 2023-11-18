@@ -2,20 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/screens/pay_screens/alert_dialog.dart';
-
-import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
+import 'package:students_pay/screens/pay_screens/pay/student/student_amount_screen.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class AirtimeConfirmationScreen extends StatefulWidget {
-  const AirtimeConfirmationScreen({super.key});
+class StudentConfirmationScreen extends StatefulWidget {
+  const StudentConfirmationScreen({super.key});
 
   @override
-  State<AirtimeConfirmationScreen> createState() =>
-      _AirtimeConfirmationScreenState();
+  State<StudentConfirmationScreen> createState() =>
+      _StudentConfirmationScreenState();
 }
 
-class _AirtimeConfirmationScreenState extends State<AirtimeConfirmationScreen> {
+class _StudentConfirmationScreenState extends State<StudentConfirmationScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -26,7 +25,7 @@ class _AirtimeConfirmationScreenState extends State<AirtimeConfirmationScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const PurchaseAirtimeScreen(),
+                    builder: (context) => const StudentAmountScreen(),
                   ),
                 );
               },
@@ -116,7 +115,7 @@ class _AirtimeConfirmationScreenState extends State<AirtimeConfirmationScreen> {
                                 onPressed: () {}, child: const Text("Edit"))
                           ],
                         ),
-                        const Text("GHC 20.54"),
+                        const Text("GHC 8700.54"),
                       ]),
                 ),
                 const Spacer(),
