@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:students_pay/screens/home_scren.dart';
 import 'package:students_pay/screens/learn_screen.dart';
-import 'package:students_pay/screens/studentspay_screen.dart';
+import 'package:students_pay/screens/pay_screens/studentspay_screen.dart';
 import 'package:students_pay/screens/subscription_screen.dart';
 
 class NavBar extends StatefulWidget {

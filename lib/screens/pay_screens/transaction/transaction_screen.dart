@@ -88,8 +88,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Row(children: [
-                        CircleAvatar(
-                          child: Image.asset("assets/images/groceries.jpeg"),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(24),
+                          child: CircleAvatar(
+                            child: Image.asset("assets/images/groceries.jpeg"),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),

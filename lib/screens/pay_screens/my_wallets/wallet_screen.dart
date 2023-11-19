@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/screens/pay_screens/my_wallets/chart/chart.dart';
 import 'package:students_pay/screens/pay_screens/my_wallets/wallet_type/wallet_type_screen.dart';
 
 import 'package:students_pay/screens/studentspay_navbar.dart';
@@ -41,46 +42,26 @@ class _WalletScreenState extends State<WalletScreen> {
           child: Column(children: [
             Expanded(
                 child: ListView(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  height: 327,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                          color: Colors.grey, style: BorderStyle.solid)),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Income performance",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
+              children: const [
+                Chart(),
+                SizedBox(
                   height: 10,
                 ),
-                const WalletType(
+                WalletType(
                   walletTypeText: 'StudentsPay Account',
                   containerColor: Color.fromRGBO(74, 192, 255, 1),
                   textColor: Colors.white,
                   walletBalance: "15,903.00",
                   walletDescriptionText: "Your Savings Balance",
                 ),
-                const WalletType(
+                WalletType(
                   walletTypeText: 'Mobile Money Account',
                   containerColor: Color.fromRGBO(250, 255, 0, 1),
                   textColor: Colors.black,
                   walletBalance: "15,903.00",
                   walletDescriptionText: "MTN Mobile Money",
                 ),
-                const WalletType(
+                WalletType(
                   walletTypeText: 'Bank Account',
                   containerColor: Color.fromRGBO(234, 67, 53, 1),
                   textColor: Colors.white,

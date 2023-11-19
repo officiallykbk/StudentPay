@@ -78,26 +78,29 @@ class _PayScreenState extends State<PayScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SizedBox(
-                width: width,
-                child: const Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    ButtonWidget(
+              const Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: ButtonWidget(
                       screen: WalletScreen(),
                       containerColor: Colors.black,
                       text: "My Wallets",
                       textColor: Colors.white,
                     ),
-                    Spacer(),
-                    ButtonWidget(
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: ButtonWidget(
                       screen: TransactionsScreen(),
                       containerColor: null,
                       text: "Transactions",
                       textColor: null,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const Spacer(),
               Container(
@@ -245,8 +248,8 @@ class ButtonWidget extends StatelessWidget {
         );
       },
       child: Container(
-        constraints: const BoxConstraints(
-            maxHeight: 50, maxWidth: 180, minHeight: 30, minWidth: 108),
+        constraints: const BoxConstraints(maxHeight: 50, minHeight: 20),
+        width: double.infinity,
         decoration: BoxDecoration(
             border: Border.all(style: BorderStyle.solid),
             color: containerColor,
@@ -280,7 +283,8 @@ class QuickItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      customBorder: const StadiumBorder(),
+      customBorder:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       splashColor: Colors.black12,
       onTap: () {
         Navigator.of(context).push(
