@@ -1,9 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
-import 'package:students_pay/Earn_Screen_Folder/components/options.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 
 class ReferralOptionPage extends StatefulWidget {
@@ -16,228 +12,110 @@ class ReferralOptionPage extends StatefulWidget {
 }
 
 class _ReferralOptionPageState extends State<ReferralOptionPage> {
-  int? selectedIndex;
-
-  void updateSelectedIndex(int newIndex) {
-    setState(() {
-      selectedIndex = newIndex;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Earn",
-          style: GoogleFonts.inter(
-            textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 17, top: 25),
+          child: Text(
+            'Student Monthly Subscription',
+            style: GoogleFonts.inter(
+              textStyle: const TextStyle(
+                color: Color(0xFF000000),
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
           ),
         ),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        const SizedBox(height: 20),
+        const Padding(
+          padding: EdgeInsets.only(left: 15, right: 15),
+          child: SubscriptionInfo(
+            icon: Icon(
+              Icons.telegram,
+              size: 35,
+            ),
+            info:
+                'Send Referrral codes to others and earn points that can be withdrawn as cash',
+          ),
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          child: SubscriptionInfo(
+            info: 'Subscribe to get more points',
+            icon: Image.asset('assets/images/cash.png', width: 24, height: 24),
+          ),
+        ),
+        const SizedBox(height: 20),
+        const ReferralVoucherField(
+          text:
+              'Share Your referral Code with your Friends on Other Socia media platforms',
+          textTwo:
+              'Earn up to 1500 coins every 5 friends you share your referral code with',
+          color: Color(0xFFC5F3D6),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 17,
+            top: 20,
+          ),
+          child: Row(
             children: [
-              const SizedBox(
-                height: 40,
-                width: 23,
-                child: Image(
-                  image: AssetImage("assets/images/star1.png"),
-                ),
-              ),
-              Text(
-                "17,537",
-                style: GoogleFonts.inter(
-                  textStyle: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 17,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 1,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.notifications),
-              ),
-            ],
-          )
-        ],
-      ),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
-        child: ListView(
-          children: [
-            Savings(
-              title: 'Your Savings Balance',
-              savingsAmount: '\$15,903.',
-            ),
-            SizedBox(height: 15),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16),
-                    child: OptionsField(
-                      currentUser: 1,
-                      // Pass the callback function to OptionsField
-                      updateSelectedIndex: updateSelectedIndex,
-                      index: 0,
-                      options: 'Subscribe',
+              Align(
+                alignment: Alignment.topLeft,
+                child: InkWell(
+                  customBorder: const StadiumBorder(),
+                  splashColor: Colors.black,
+                  onTap: () {},
+                  child: Container(
+                    height: 60,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      border: const Border.fromBorderSide(
+                        BorderSide(style: BorderStyle.solid),
+                      ),
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                  ),
-                  SizedBox(
-                    width: 7,
-                  ),
-                  OptionsField(
-                    currentUser: 1,
-                    updateSelectedIndex: updateSelectedIndex,
-                    index: 1,
-                    options: 'Referral',
-                  ),
-                  SizedBox(
-                    width: 7,
-                  ),
-                  OptionsField(
-                    currentUser: 0,
-                    updateSelectedIndex: updateSelectedIndex,
-                    index: 2,
-                    options: 'Points',
-                  ),
-                  SizedBox(
-                    width: 7,
-                  ),
-                  OptionsField(
-                    currentUser: 0,
-                    updateSelectedIndex: updateSelectedIndex,
-                    index: 3,
-                    options: 'Microjobs',
-                  ),
-                  SizedBox(
-                    width: 7,
-                  ),
-                  OptionsField(
-                    currentUser: 0,
-                    updateSelectedIndex: updateSelectedIndex,
-                    index: 4,
-                    options: 'Challenge',
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 17, top: 25),
-              child: Text(
-                'Student Monthly Subscription',
-                style: GoogleFonts.inter(
-                  textStyle: TextStyle(
-                    color: Color(0xFF000000),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: SubscriptionInfo(
-                icon: Icon(
-                  Icons.telegram,
-                  size: 35,
-                ),
-                info:
-                    'Send Referrral codes to others and earn points that can be withdrawn as cash',
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: SubscriptionInfo(
-                info: 'Subscribe to get more points',
-                icon: Image.asset('assets/images/cash.png',
-                    width: 24, height: 24),
-              ),
-            ),
-            SizedBox(height: 20),
-            Column(
-              children: [
-                ReferralVoucherField(
-                  text:
-                      'Share Your referral Code with your Friends on Other Socia media platforms',
-                  textTwo:
-                      'Earn up to 1500 coins every 5 friends you share your referral code with',
-                  color: Color(0xFFC5F3D6),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 17,
-                    top: 20,
-                  ),
-                  child: Row(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: InkWell(
-                          customBorder: StadiumBorder(),
-                          splashColor: Colors.black,
-                          onTap: () {},
-                          child: Container(
-                            height: 60,
-                            width: 250,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              border: const Border.fromBorderSide(
-                                BorderSide(style: BorderStyle.solid),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.arrow_back_ios_new),
+                          color: Colors.white,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 30),
+                          child: Text(
+                            'Subscribe',
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.arrow_back_ios_new),
-                                  color: Colors.white,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 30),
-                                  child: Text(
-                                    'Subscribe',
-                                    style: GoogleFonts.inter(
-                                      textStyle: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
                             ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.content_copy),
-                        iconSize: 50,
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(height: 20),
-              ],
-            ),
-          ],
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.content_copy),
+                iconSize: 50,
+              )
+            ],
+          ),
         ),
-      ),
+        const SizedBox(height: 20),
+      ],
     );
   }
 }
@@ -281,7 +159,7 @@ class ReferralVoucherField extends StatelessWidget {
                         fontSize: 21,
                         fontWeight: FontWeight.w900)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(textTwo,
@@ -291,7 +169,7 @@ class ReferralVoucherField extends StatelessWidget {
                           color: Color(0xFF070101),
                           fontSize: 16.5,
                           fontWeight: FontWeight.w700))),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               VoucherField(
@@ -333,7 +211,7 @@ class VoucherField extends StatelessWidget {
             fillColor: Colors.white,
             filled: true,
             hintText: hintText,
-            hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+            hintStyle: const TextStyle(fontWeight: FontWeight.bold)),
       ),
     );
   }

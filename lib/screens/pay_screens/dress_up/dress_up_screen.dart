@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:students_pay/screens/studentspay_navBar.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
 class DressUpScreen extends StatefulWidget {
   const DressUpScreen({super.key});

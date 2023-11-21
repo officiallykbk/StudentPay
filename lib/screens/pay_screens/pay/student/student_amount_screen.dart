@@ -1,19 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/alert_dialog.dart';
-import 'package:students_pay/screens/pay_screens/amount_screen.dart';
+import 'package:students_pay/screens/pay_screens/pay/student/student_password_screen.dart';
+
+import 'package:students_pay/screens/pay_screens/pay/payment_types_screen.dart';
 
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class ConfirmationScreen extends StatefulWidget {
-  const ConfirmationScreen({super.key});
+class StudentAmountScreen extends StatefulWidget {
+  const StudentAmountScreen({super.key});
 
   @override
-  State<ConfirmationScreen> createState() => _ConfirmationScreenState();
+  State<StudentAmountScreen> createState() => _StudentAmountScreenState();
 }
 
-class _ConfirmationScreenState extends State<ConfirmationScreen> {
+class _StudentAmountScreenState extends State<StudentAmountScreen> {
+  TextEditingController _controller = TextEditingController();
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -24,7 +38,7 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const AmountScreen(),
+                    builder: (context) => const PaymentTypesScreen(),
                   ),
                 );
               },
@@ -42,10 +56,12 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Progress(indicator: 0.8),
-                const SizedBox(height: 15),
+                const Progress(indicator: 0.5),
+                const SizedBox(
+                  height: 15,
+                ),
                 Text(
-                  "Confirm Transaction",
+                  "Enter Amount",
                   style: GoogleFonts.inter(
                       textStyle: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w700)),
@@ -54,25 +70,27 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
                   height: 15,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(16),
-                  width: width,
+                  padding: const EdgeInsets.all(2),
+                  alignment: Alignment.center,
+                  height: 48,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(style: BorderStyle.solid)),
-                  child: Column(children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Recipient Information",
-                          style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                        ),
-                        TextButton(onPressed: () {}, child: const Text("Edit"))
-                      ],
+                  width: width,
+                  child: Row(children: [
+                    Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 9.0),
+                        height: 40,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                          color: Colors.blueGrey,
+                          shape: BoxShape.circle,
+                        )),
+                    const SizedBox(
+                      width: 8,
                     ),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Glover Smith",
@@ -80,51 +98,44 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
                               textStyle: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w400)),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text("054 854 4589"),
-                        )
+                        const Text("878 784 xxx"),
                       ],
-                    ),
+                    )
                   ]),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(16),
-                  width: width,
+                  alignment: Alignment.center,
+                  height: 145,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(style: BorderStyle.solid)),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Amount",
-                              style: GoogleFonts.inter(
-                                  textStyle: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w700)),
-                            ),
-                            TextButton(
-                                onPressed: () {}, child: const Text("Edit"))
-                          ],
-                        ),
-                        const Text("GHC 8700.54"),
-                      ]),
+                  width: width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 80.0),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      autofocus: true,
+                      style: GoogleFonts.inter(
+                          textStyle: const TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.w700)),
+                      showCursor: true,
+                      controller: _controller,
+                      decoration:
+                          const InputDecoration(border: InputBorder.none),
+                    ),
+                  ),
                 ),
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return const ShowAlertDialog();
-                        });
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const StudentPasswordScreen(),
+                      ),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 14.0),
@@ -136,7 +147,7 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
                           borderRadius: BorderRadius.circular(24)),
                       child: Center(
                         child: Text(
-                          "Confirm",
+                          "Next",
                           style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                   color: Color.fromRGBO(255, 255, 255, 1),

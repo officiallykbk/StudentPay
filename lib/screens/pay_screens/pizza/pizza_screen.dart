@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
-import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
-class TapNPayScreen extends StatefulWidget {
-  const TapNPayScreen({super.key});
+class PizzaScreen extends StatefulWidget {
+  const PizzaScreen({super.key});
 
   @override
-  State<TapNPayScreen> createState() => _TapNPayScreenState();
+  State<PizzaScreen> createState() => _PizzaScreenState();
 }
 
-class _TapNPayScreenState extends State<TapNPayScreen> {
+class _PizzaScreenState extends State<PizzaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,26 +19,20 @@ class _TapNPayScreenState extends State<TapNPayScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const PaymentMethodsScreen(),
+                  builder: (context) => const NavBar(
+                    currentIndex: 1,
+                  ),
                 ),
               );
             },
             icon: const Icon(CupertinoIcons.back)),
         title: Text(
-          "Pay",
+          "Pizza",
           style: GoogleFonts.inter(
               textStyle:
                   const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
         ),
         centerTitle: true,
-      ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 23.0),
-        child: Column(
-          children: [
-            Progress(indicator: 0.4),
-          ],
-        ),
       ),
     );
   }

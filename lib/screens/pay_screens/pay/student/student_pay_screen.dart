@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/amount_screen.dart';
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
+import 'package:students_pay/screens/pay_screens/pay/student/student_amount_screen.dart';
+import 'package:students_pay/screens/pay_screens/pay/payment_types_screen.dart';
 import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class StudentNameScreen extends StatefulWidget {
-  const StudentNameScreen({super.key});
+class StudentPayScreen extends StatefulWidget {
+  const StudentPayScreen({super.key});
 
   @override
-  State<StudentNameScreen> createState() => _StudentNameScreenState();
+  State<StudentPayScreen> createState() => _StudentPayScreenState();
 }
 
-class _StudentNameScreenState extends State<StudentNameScreen> {
+class _StudentPayScreenState extends State<StudentPayScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -23,7 +23,7 @@ class _StudentNameScreenState extends State<StudentNameScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const PaymentMethodsScreen(),
+                  builder: (context) => const PaymentTypesScreen(),
                 ),
               );
             },
@@ -76,7 +76,7 @@ class _StudentNameScreenState extends State<StudentNameScreen> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const AmountScreen(),
+                      builder: (context) => const StudentAmountScreen(),
                     ),
                   );
                 },

@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:students_pay/screens/studentspay_navBar.dart';
+import 'package:students_pay/screens/studentspay_navbar.dart';
 
 class TransactionsScreen extends StatefulWidget {
   const TransactionsScreen({super.key});
@@ -89,8 +88,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Row(children: [
-                        CircleAvatar(
-                          child: Image.asset("assets/images/groceries.jpeg"),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(24),
+                          child: CircleAvatar(
+                            child: Image.asset("assets/images/groceries.jpeg"),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -121,7 +123,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             ),
             const Divider(),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pop();
+              },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 14.0),
                 child: Container(

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:students_pay/screens/pay_screens/delivery_shop_screen.dart';
-import 'package:students_pay/screens/pay_screens/dress_up_screen.dart';
-import 'package:students_pay/screens/pay_screens/jean_shop_screen.dart';
-import 'package:students_pay/screens/pay_screens/payment_methods.dart';
-import 'package:students_pay/screens/pay_screens/pizza_screen.dart';
-import 'package:students_pay/screens/pay_screens/purchase_airtime.dart';
-import 'package:students_pay/screens/pay_screens/transaction_screen.dart';
+import 'package:students_pay/screens/pay_screens/airtime/purchase_airtime.dart';
+import 'package:students_pay/screens/pay_screens/delivery/delivery_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/dress_up/dress_up_screen.dart';
+import 'package:students_pay/screens/pay_screens/jean_shop/jean_shop_screen.dart';
+import 'package:students_pay/screens/pay_screens/pay/payment_types_screen.dart';
 
-import 'package:students_pay/screens/pay_screens/wallet_screen.dart';
+import 'package:students_pay/screens/pay_screens/pizza/pizza_screen.dart';
+import 'package:students_pay/screens/pay_screens/transaction/transaction_screen.dart';
+
+import 'package:students_pay/screens/pay_screens/my_wallets/wallet_screen.dart';
 
 class PayScreen extends StatefulWidget {
   const PayScreen({super.key});
@@ -77,26 +78,29 @@ class _PayScreenState extends State<PayScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SizedBox(
-                width: width,
-                child: const Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    ButtonWidget(
+              const Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: ButtonWidget(
                       screen: WalletScreen(),
                       containerColor: Colors.black,
                       text: "My Wallets",
                       textColor: Colors.white,
                     ),
-                    Spacer(),
-                    ButtonWidget(
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: ButtonWidget(
                       screen: TransactionsScreen(),
                       containerColor: null,
                       text: "Transactions",
                       textColor: null,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const Spacer(),
               Container(
@@ -195,7 +199,7 @@ class _PayScreenState extends State<PayScreen> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const PaymentMethodsScreen(),
+                      builder: (context) => const PaymentTypesScreen(),
                     ),
                   );
                 },
@@ -244,8 +248,8 @@ class ButtonWidget extends StatelessWidget {
         );
       },
       child: Container(
-        constraints: const BoxConstraints(
-            maxHeight: 50, maxWidth: 180, minHeight: 30, minWidth: 108),
+        constraints: const BoxConstraints(maxHeight: 50, minHeight: 20),
+        width: double.infinity,
         decoration: BoxDecoration(
             border: Border.all(style: BorderStyle.solid),
             color: containerColor,
@@ -279,7 +283,8 @@ class QuickItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      customBorder: const StadiumBorder(),
+      customBorder:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       splashColor: Colors.black12,
       onTap: () {
         Navigator.of(context).push(
