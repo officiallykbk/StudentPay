@@ -12,6 +12,15 @@ class PointsOptionPage extends StatefulWidget {
 }
 
 class _PontsPageState extends State<PointsOptionPage> {
+  List<double> weeklySummary = [
+    4.40,
+    2.50,
+    42.40,
+    12.50,
+    100.40,
+    82.50,
+    42.40,
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(

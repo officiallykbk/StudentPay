@@ -39,22 +39,22 @@ class SubscriptionOffers extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: GoogleFonts.inter(
+                style: GoogleFonts.roboto(
                     textStyle: const TextStyle(
                         color: Color(0xFF070101),
-                        fontSize: 20,
+                        fontSize: 22,
                         fontWeight: FontWeight.w900)),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(textTwo,
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.roboto(
                       textStyle: const TextStyle(
                           letterSpacing: 0.3,
                           color: Color(0xFF070101),
                           fontSize: 15,
-                          fontWeight: FontWeight.w700))),
+                          fontWeight: FontWeight.w600))),
               SizedBox(
                 height: 40,
               ),

@@ -32,10 +32,9 @@ class _ChallengeOptionsState extends State<ChallengeOptions> {
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: SubscriptionInfo(
             icon: Image.asset(
-              'assets/images/offer.png', // Replace with your image path
-              width: 24, // Adjust the width as needed
-              height: 24, // Adjust the height as needed
-              // Add any decoration if needed
+              'assets/images/offer.png',
+              width: 24,
+              height: 24,
             ),
             info:
                 'Start earning up to 1000 a month including no transaction fees',
@@ -47,10 +46,9 @@ class _ChallengeOptionsState extends State<ChallengeOptions> {
           child: SubscriptionInfo(
             info: 'Subscribe to get more points',
             icon: Image.asset(
-              'assets/images/cash.png', // Replace with your image path
-              width: 24, // Adjust the width as needed
-              height: 24, // Adjust the height as needed
-              // Add any decoration if needed
+              'assets/images/cash.png',
+              width: 24,
+              height: 24,
             ),
           ),
         ),

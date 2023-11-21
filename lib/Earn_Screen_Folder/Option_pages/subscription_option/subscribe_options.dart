@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_widget/first_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/offers.dart';
-
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 
 class SubscribeOptionPage extends StatefulWidget {
@@ -17,7 +16,18 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Container(
+          margin: const EdgeInsets.only(left: 15, top: 25),
+          child: Text('Current Offers',
+              style: GoogleFonts.roboto(
+                  textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900))),
+        ),
+        const CustomContainer(),
         Padding(
           padding: const EdgeInsets.only(left: 17, top: 25),
           child: Text(
