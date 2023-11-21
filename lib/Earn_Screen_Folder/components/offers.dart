@@ -5,21 +5,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/diamond_offer.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/gold_offer.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_screens/silver_offer.dart';
+import 'package:students_pay/Earn_Screen_Folder/models/subscription_model.dart';
 
 class SubscriptionOffers extends StatelessWidget {
   const SubscriptionOffers(
-      {super.key,
-      required this.text,
-      required this.textTwo,
-      required this.color,
-      required this.index});
-  final String text;
-  final String textTwo;
-  final Color color;
+      {super.key, required this.index, required this.subscriptionModel});
+
   final int index;
+  final SubscriptionModel subscriptionModel;
 
   @override
   Widget build(BuildContext context) {
+    final mystyle = GoogleFonts.roboto(
+        textStyle: const TextStyle(
+            color: Color(0xFF070101),
+            fontSize: 22,
+            fontWeight: FontWeight.w900));
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Padding(
@@ -28,7 +29,7 @@ class SubscriptionOffers extends StatelessWidget {
         width: width,
         height: height * 0.32,
         decoration: BoxDecoration(
-            color: color,
+            color: subscriptionModel.color,
             border: const Border.fromBorderSide(
                 BorderSide(style: BorderStyle.solid)),
             borderRadius: BorderRadius.circular(30)),
@@ -37,18 +38,29 @@ class SubscriptionOffers extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                text,
-                style: GoogleFonts.roboto(
-                    textStyle: const TextStyle(
-                        color: Color(0xFF070101),
-                        fontSize: 22,
-                        fontWeight: FontWeight.w900)),
+              Row(
+                children: [
+                  Text(
+                    subscriptionModel.text,
+                    style: mystyle,
+                  ),
+                  Text(
+                    subscriptionModel.offer.toString(),
+                    style: mystyle,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    subscriptionModel.textThree,
+                    style: mystyle,
+                  )
+                ],
               ),
               SizedBox(
                 height: 10,
               ),
-              Text(textTwo,
+              Text(subscriptionModel.textTwo,
                   style: GoogleFonts.roboto(
                       textStyle: const TextStyle(
                           letterSpacing: 0.3,
@@ -64,17 +76,21 @@ class SubscriptionOffers extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SilverOffer()));
+                            builder: (context) => SilverOffer(
+                                  offer: subscriptionModel.offer,
+                                )));
                   } else if (index == 1) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const DiamondOffer()));
+                            builder: (context) =>
+                                DiamondOffer(offer: subscriptionModel.offer)));
                   } else if (index == 2) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const GoldOffer()));
+                            builder: (context) =>
+                                GoldOffer(offer: subscriptionModel.offer)));
                   }
                 },
                 child: Container(

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_widget/first_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/offers.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
+import 'package:students_pay/Earn_Screen_Folder/models/subscription_model.dart';
 
 class SubscribeOptionPage extends StatefulWidget {
   const SubscribeOptionPage({super.key});
@@ -67,26 +68,35 @@ class _SubscribeOptionState extends State<SubscribeOptionPage> {
           ),
         ),
         const SizedBox(height: 20),
-        const SubscriptionOffers(
+        SubscriptionOffers(
           index: 0,
-          color: Color(0x73C6D7F1),
-          text: 'GHC 50 Offer',
-          textTwo:
-              'Start earning up to 1000 a month including no transaction fees, except withdrawing from the platform to another platform',
+          subscriptionModel: SubscriptionModel(
+            color: const Color(0xFFE5F0FF),
+            text: 'GHC ',
+            offer: 100,
+            textTwo:
+                'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
+          ),
         ),
-        const SubscriptionOffers(
+        SubscriptionOffers(
           index: 1,
-          color: Color(0xFFC5F3D6),
-          text: 'GHC 150 Offer',
-          textTwo:
-              'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
+          subscriptionModel: SubscriptionModel(
+            color: Color.fromARGB(255, 246, 248, 112),
+            text: 'GHC ',
+            offer: 150,
+            textTwo:
+                'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
+          ),
         ),
-        const SubscriptionOffers(
+        SubscriptionOffers(
           index: 2,
-          color: Color(0xFFFAF6D3),
-          text: 'GHC 100 Offer',
-          textTwo:
-              'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
+          subscriptionModel: SubscriptionModel(
+            color: Color(0xFFFAF6D3),
+            text: 'GHC ',
+            offer: 200,
+            textTwo:
+                'Start earning up to 1000 a month including no transaction fees  except withdrawing from the platform to another platform',
+          ),
         ),
         const SizedBox(height: 100),
       ],

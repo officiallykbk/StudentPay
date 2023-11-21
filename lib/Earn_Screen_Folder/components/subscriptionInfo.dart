@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SubscriptionInfo extends StatelessWidget {
   const SubscriptionInfo({Key? key, required this.info, required this.icon})
@@ -20,7 +21,7 @@ class SubscriptionInfo extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
-          color: Color(0xFFFAF6D3),
+          color: Color(0xFFF1E35D),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -39,7 +40,7 @@ class SubscriptionInfo extends StatelessWidget {
             Expanded(
               child: Text(
                 info,
-                style: TextStyle(
+                style: GoogleFonts.roboto(
                   fontSize: 16,
                   letterSpacing: 0.5,
                   fontWeight: FontWeight.w700,

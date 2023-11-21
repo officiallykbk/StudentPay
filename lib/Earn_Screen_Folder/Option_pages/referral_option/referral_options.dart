@@ -170,7 +170,7 @@ class ReferralVoucherField extends StatelessWidget {
                         fontSize: 21,
                         fontWeight: FontWeight.w900)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(textTwo,
@@ -180,7 +180,7 @@ class ReferralVoucherField extends StatelessWidget {
                           color: Color(0xFF070101),
                           fontSize: 16.5,
                           fontWeight: FontWeight.w700))),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               VoucherField(
@@ -222,7 +222,7 @@ class VoucherField extends StatelessWidget {
             fillColor: Colors.white,
             filled: true,
             hintText: hintText,
-            hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+            hintStyle: const TextStyle(fontWeight: FontWeight.bold)),
       ),
     );
   }
