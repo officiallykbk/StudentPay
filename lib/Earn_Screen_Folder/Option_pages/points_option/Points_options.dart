@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/points_option/bar_graph/bar_graph.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 import 'package:students_pay/Earn_Screen_Folder/widgets/Points_screen_widget/points_screen_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/widgets/custom_rounded_button.dart';
@@ -25,18 +25,10 @@ class _PontsPageState extends State<PointsOptionPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 17, top: 25),
-          child: Text(
-            'Student Monthly Subscription',
-            style: GoogleFonts.inter(
-              textStyle: const TextStyle(
-                color: Color(0xFF000000),
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-          ),
+        const SizedBox(height: 50),
+        SizedBox(
+          height: 250,
+          child: MyBarGraph(weeklySummary: weeklySummary),
         ),
         const SizedBox(height: 20),
         Padding(
