@@ -5,12 +5,15 @@ import 'referencepages.dart';
 class TransSum extends StatelessWidget {
   const TransSum({super.key});
 
+  opener(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => const Finale()));
+  }
+
   @override
   Widget build(BuildContext context) {
-    opener() {
-      return const Finale();
-    }
-
+    double amount_sent = 8700.54;
+    String receiver_name = "Glover Smith";
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: const PreferredSize(
@@ -170,12 +173,57 @@ class TransSum extends StatelessWidget {
             ]),
           )),
           GestureDetector(
-            onTap:
-                // general == ''
-                //     ? () {}
-                //     :
-                () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => opener())),
+            onTap: () => showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text(
+                      "Are you sure you want to send GHC$amount_sent to $receiver_name?"),
+                  backgroundColor: Colors.white,
+                  actions: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(24),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(style: BorderStyle.solid),
+                            ),
+                            child: const Text("Cancel"),
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        InkWell(
+                          borderRadius: BorderRadius.circular(24),
+                          onTap: () => opener(context),
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(style: BorderStyle.solid),
+                            ),
+                            child: const Text(
+                              "Yes",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                );
+              },
+            ),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(

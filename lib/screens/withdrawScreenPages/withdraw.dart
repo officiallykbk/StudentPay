@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/sendScreenPages/acc_num.dart';
-import 'package:students_pay/screens/sendScreenPages/momo_num.dart';
-import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
-import 'referencepages.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 
-class SendMoney extends StatefulWidget {
-  const SendMoney({super.key});
+class WithdrawMoney extends StatefulWidget {
+  const WithdrawMoney({super.key});
 
   @override
-  State<SendMoney> createState() => _SendMoneyState();
+  State<WithdrawMoney> createState() => _WithdrawMoneyState();
 }
 
-class _SendMoneyState extends State<SendMoney> {
+class _WithdrawMoneyState extends State<WithdrawMoney> {
   String general = '';
   bool selected1 = false;
   bool selected2 = false;
   bool selected3 = false;
-  Widget opener() {
-    if (general == "sTs") {
-      return const StudentName();
-    } else if (general == "Momo") {
-      return const MomoNum();
-    } else {
-      return const BankNum();
-    }
-  }
+  // Widget opener() {
+  //   if (general == "sTs") {
+  //     return const StudentName();
+  //   } else if (general == "Momo") {
+  //     return const MomoNum();
+  //   } else {
+  //     return const BankNum();
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +51,8 @@ class _SendMoneyState extends State<SendMoney> {
                   selected3 = false;
                 }),
                 child: SendMethod(
-                    method: "StudentPay-to-StudentPay",
-                    pngname: "studentpaymode.svg",
+                    method: "StudentPay Account",
+                    pngname: "",
                     selected: selected1),
               ),
               GestureDetector(
@@ -66,8 +63,8 @@ class _SendMoneyState extends State<SendMoney> {
                         selected3 = false;
                       }),
                   child: SendMethod(
-                      method: "Mobile Money",
-                      pngname: "momo.svg",
+                      method: "Mobile Number",
+                      pngname: "",
                       selected: selected2)),
               GestureDetector(
                   onTap: () => setState(() {
@@ -77,14 +74,13 @@ class _SendMoneyState extends State<SendMoney> {
                         selected2 = false;
                       }),
                   child: SendMethod(
-                      method: "Bank", pngname: "bank.svg", selected: selected3))
+                      method: "Bank", pngname: "", selected: selected3))
             ],
           )),
           GestureDetector(
-            onTap: general == ''
-                ? () {}
-                : () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => opener())),
+            onTap: general == '' ? () {} : () {},
+            // => Navigator.of(context)
+            //     .push(MaterialPageRoute(builder: (_) => opener())),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(

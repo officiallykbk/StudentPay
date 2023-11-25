@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:students_pay/screens/sendScreenPages/send.dart';
+import 'package:students_pay/screens/withdrawScreenPages/withdraw.dart';
 
 class HomeScren extends StatefulWidget {
   const HomeScren({super.key});
@@ -169,23 +170,26 @@ class _HomeScrenState extends State<HomeScren> {
                       ),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (_) => const SendMoney()))),
-                  Container(
-                    height: 80,
-                    width: 90,
-                    margin: const EdgeInsets.only(top: 25),
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1.0),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SvgPicture.asset("assets/svgassets/withdraw.svg"),
-                        const Text("Withdraw",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w700))
-                      ],
-                    ),
-                  ),
+                  GestureDetector(
+                      child: Container(
+                        height: 80,
+                        width: 90,
+                        margin: const EdgeInsets.only(top: 25),
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 1.0),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SvgPicture.asset("assets/svgassets/withdraw.svg"),
+                            const Text("Withdraw",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w700))
+                          ],
+                        ),
+                      ),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const WithdrawMoney()))),
                   Container(
                     height: 80,
                     width: 90,
