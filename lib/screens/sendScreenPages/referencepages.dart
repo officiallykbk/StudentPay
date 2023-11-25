@@ -143,7 +143,6 @@ class Progress extends StatelessWidget {
         color: Colors.black,
         backgroundColor: const Color.fromARGB(255, 204, 204, 204),
         value: indicator,
-        borderRadius: BorderRadius.circular(25),
       ),
     );
   }

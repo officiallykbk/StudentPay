@@ -7,12 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 class Savings extends StatelessWidget {
   const Savings({
     Key? key,
+    this.color = Colors.white,
     required this.title,
     required this.savingsAmount,
   }) : super(key: key);
   final String title;
   final String savingsAmount;
-
+  final Color color;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -26,6 +27,7 @@ class Savings extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
+              color: color,
               borderRadius: BorderRadius.circular(27),
               border:
                   Border.all(width: 1, color: Colors.black.withOpacity(0.20))),
