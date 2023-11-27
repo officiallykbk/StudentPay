@@ -140,7 +140,7 @@ class Progress extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 50,
       margin: const EdgeInsets.only(top: 10, bottom: 10),
       child: LinearProgressIndicator(
-        color: Colors.black,
+        color: Colors.amber.shade400,
         backgroundColor: const Color.fromARGB(255, 204, 204, 204),
         value: indicator,
       ),

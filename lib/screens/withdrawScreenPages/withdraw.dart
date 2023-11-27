@@ -89,8 +89,10 @@ class _WithdrawMoneyState extends State<WithdrawMoney> {
                 width: screenWidth - 50,
                 decoration: BoxDecoration(
                     color: general == ''
-                        ? Colors.black.withOpacity(0.6000000238418579)
-                        : Colors.black,
+                        ? Colors.amber.shade100
+                        : const Color(
+                            0xFFE3BA14,
+                          ),
                     borderRadius: const BorderRadius.all(Radius.circular(50))),
                 child: const Center(
                   child: Text("Next",

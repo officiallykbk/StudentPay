@@ -82,6 +82,7 @@ class _HomeScrenState extends State<HomeScren> {
       });
     }
     return Scaffold(
+        backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
             automaticallyImplyLeading: false,
             toolbarHeight: 94.5,
@@ -135,15 +136,21 @@ class _HomeScrenState extends State<HomeScren> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                margin: const EdgeInsets.only(left: 20.5),
+                width: MediaQuery.of(context).size.width - 50,
+                height: 100,
+                margin: const EdgeInsets.only(left: 25, right: 25),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text("Your Balance", style: TextStyle(fontSize: 15)),
+                    const Text("Your Balance", style: TextStyle(fontSize: 18)),
                     Text("₵$balance",
                         style: const TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.w700))
+                            fontSize: 50, fontWeight: FontWeight.w700))
                   ],
                 ),
               ),
@@ -156,8 +163,9 @@ class _HomeScrenState extends State<HomeScren> {
                         width: 90,
                         margin: const EdgeInsets.only(top: 25),
                         decoration: BoxDecoration(
-                            border: Border.all(width: 1.0),
-                            borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -176,8 +184,9 @@ class _HomeScrenState extends State<HomeScren> {
                         width: 90,
                         margin: const EdgeInsets.only(top: 25),
                         decoration: BoxDecoration(
-                            border: Border.all(width: 1.0),
-                            borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -195,8 +204,9 @@ class _HomeScrenState extends State<HomeScren> {
                     width: 90,
                     margin: const EdgeInsets.only(top: 25),
                     decoration: BoxDecoration(
-                        border: Border.all(width: 1.0),
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -214,7 +224,7 @@ class _HomeScrenState extends State<HomeScren> {
                 margin: const EdgeInsets.only(
                     top: 16, right: 24, left: 24, bottom: 16),
                 decoration: BoxDecoration(
-                    border: Border.all(width: 1.0),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Container(
                   height: 120,
@@ -273,7 +283,7 @@ class _HomeScrenState extends State<HomeScren> {
                     receivernames.length < 3 ? 150 : receivernames.length * 62,
                 margin: const EdgeInsets.only(top: 16, right: 23, left: 24),
                 decoration: BoxDecoration(
-                    border: Border.all(width: 1),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Container(
                   margin: const EdgeInsets.all(20),

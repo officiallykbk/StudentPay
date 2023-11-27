@@ -179,12 +179,37 @@ class TransSum extends StatelessWidget {
               builder: (context) {
                 return AlertDialog(
                   title: Text(
-                      "Are you sure you want to send GHC$amount_sent to $receiver_name?"),
+                    "Are you sure you want to send GHC$amount_sent to $receiver_name?",
+                    textAlign: TextAlign.center,
+                  ),
                   backgroundColor: Colors.white,
                   actions: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(24),
+                          onTap: () => opener(context),
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[400],
+                              borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.zero,
+                                  bottomRight: Radius.zero,
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                            ),
+                            child: const Text(
+                              "Yes",
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 1,
+                        ),
                         InkWell(
                           borderRadius: BorderRadius.circular(24),
                           onTap: () {
@@ -194,27 +219,16 @@ class TransSum extends StatelessWidget {
                             alignment: Alignment.center,
                             height: 50,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(24),
-                              border: Border.all(style: BorderStyle.solid),
-                            ),
-                            child: const Text("Cancel"),
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(24),
-                          onTap: () => opener(context),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(24),
-                              border: Border.all(style: BorderStyle.solid),
-                            ),
+                                color: Colors.grey[400],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                  topLeft: Radius.zero,
+                                  topRight: Radius.zero,
+                                )),
                             child: const Text(
-                              "Yes",
-                              style: TextStyle(color: Colors.white),
+                              "Cancel",
+                              style: TextStyle(fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
@@ -231,7 +245,9 @@ class TransSum extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 20),
                 width: screenWidth - 50,
                 decoration: const BoxDecoration(
-                    color: Colors.black,
+                    color: Color(
+                      0xFFE3BA14,
+                    ),
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: const Center(
                   child: Text("Confirm",
