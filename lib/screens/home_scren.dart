@@ -82,7 +82,6 @@ class _HomeScrenState extends State<HomeScren> {
       });
     }
     return Scaffold(
-        backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
             automaticallyImplyLeading: false,
             toolbarHeight: 94.5,

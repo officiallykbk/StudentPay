@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
+        scaffoldBackgroundColor: Colors.grey.shade200,
       ),
       home: const NavBar(
         currentIndex: 0,
