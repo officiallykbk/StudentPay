@@ -126,7 +126,9 @@ class _StudentNameState extends State<StudentName> {
                 margin: const EdgeInsets.only(bottom: 20),
                 width: screenWidth - 50,
                 decoration: const BoxDecoration(
-                    color: Colors.black,
+                    color: Color(
+                      0xFFE3BA14,
+                    ),
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: const Center(
                   child: Text("Next",

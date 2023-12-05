@@ -32,10 +32,9 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: SubscriptionInfo(
             icon: Image.asset(
-              'assets/images/offer.png', // Replace with your image path
-              width: 24, // Adjust the width as needed
-              height: 24, // Adjust the height as needed
-              // Add any decoration if needed
+              'assets/images/offer.png',
+              width: 24,
+              height: 24,
             ),
             info:
                 'Start earning up to 1000 a month including no transaction fees',
@@ -55,8 +54,8 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
         ),
         const SizedBox(height: 15),
         const MicroJobCustomContainer(
-          color: Color(0xFF7FB6E4),
-          title: 'Rap Battle',
+          color: Color(0xFF9FE47F),
+          title: 'Survey',
           location: 'Brunei Sports Complex',
           eventTitle: 'Ticket Sales',
           eventDescription:
@@ -65,7 +64,7 @@ class _MicrojobsOptionsState extends State<MicrojobsOptions> {
         const SizedBox(height: 20),
         const MicroJobCustomContainer(
           color: Color(0xFFAAEEB8),
-          title: 'Rap Battle',
+          title: 'Tech Event',
           location: 'Brunei Sports Complex',
           eventTitle: 'Ticket Sales',
           eventDescription:

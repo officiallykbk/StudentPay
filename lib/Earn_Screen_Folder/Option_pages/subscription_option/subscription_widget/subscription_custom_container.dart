@@ -3,17 +3,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/models/subscription_model.dart';
 
 class SubscriptionContainer extends StatelessWidget {
   const SubscriptionContainer({
     Key? key,
     required this.title,
-    required this.savingsAmount,
-    required this.color,
+    required this.subscriptionModel,
   }) : super(key: key);
   final String title;
-  final double savingsAmount;
-  final Color color;
+
+  final SubscriptionModel subscriptionModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -27,7 +27,7 @@ class SubscriptionContainer extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-              color: color,
+              color: subscriptionModel.color,
               borderRadius: BorderRadius.circular(27),
               border:
                   Border.all(width: 1, color: Colors.black.withOpacity(0.20))),
@@ -66,18 +66,10 @@ class SubscriptionContainer extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      savingsAmount.toString(),
+                      subscriptionModel.offer.toStringAsFixed(2),
                       style: GoogleFonts.inter(
                           textStyle: const TextStyle(
                               color: Colors.black,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    Text(
-                      '00',
-                      style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
-                              color: Color(0xFF7C7373),
                               fontSize: 40,
                               fontWeight: FontWeight.bold)),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/points_option/bar_graph/bar_graph.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
 import 'package:students_pay/Earn_Screen_Folder/widgets/Points_screen_widget/points_screen_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/widgets/custom_rounded_button.dart';
@@ -12,24 +13,41 @@ class PointsOptionPage extends StatefulWidget {
 }
 
 class _PontsPageState extends State<PointsOptionPage> {
+  List<double> weeklySummary = [
+    44.40,
+    67.50,
+    42.40,
+    12.50,
+    100.40,
+    82.50,
+    42.40,
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 50),
+        SizedBox(
+          height: 250,
+          child: MyBarGraph(
+            weeklySummary: weeklySummary,
+          ),
+        ),
+        const SizedBox(height: 20),
         Padding(
-          padding: const EdgeInsets.only(left: 17, top: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Text(
-            'Student Monthly Subscription',
+            'Gain Point From Key Activities',
             style: GoogleFonts.inter(
               textStyle: const TextStyle(
-                color: Color(0xFF000000),
-                fontSize: 20,
+                color: Colors.black,
                 fontWeight: FontWeight.w900,
+                fontSize: 20,
               ),
             ),
           ),
         ),
-        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: SubscriptionInfo(
@@ -46,7 +64,7 @@ class _PontsPageState extends State<PointsOptionPage> {
         Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: SubscriptionInfo(
-            info: 'Subscribe to get more points',
+            info: 'The points can be converted to cash',
             icon: Image.asset(
               'assets/images/cash.png',
               width: 24,
@@ -58,7 +76,7 @@ class _PontsPageState extends State<PointsOptionPage> {
         Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: SubscriptionInfo(
-            info: 'Subscribe to get more points',
+            info: 'Every 10,000 points is equivalent to Ghc 10',
             icon: Image.asset(
               'assets/images/cash.png',
               width: 24,

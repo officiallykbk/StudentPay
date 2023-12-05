@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'send_finale.dart';
-import 'referencepages.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
+import 'package:students_pay/screens/withdrawScreenPages/withdraw_finale.dart';
 
 class TransSum extends StatelessWidget {
   const TransSum({super.key});
 
   opener(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => const Finale()));
+        .push(MaterialPageRoute(builder: (_) => const Withdraw_Finale()));
   }
 
   @override
@@ -18,7 +18,7 @@ class TransSum extends StatelessWidget {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: AppTop(name: "Send Money"),
+        child: AppTop(name: "Withdraw Money"),
       ),
       body: Column(
         children: [

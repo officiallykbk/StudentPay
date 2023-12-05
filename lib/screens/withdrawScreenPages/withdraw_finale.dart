@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
 import 'package:students_pay/screens/studentspay_navbar.dart';
-import 'referencepages.dart';
 
-class Finale extends StatelessWidget {
-  const Finale({super.key});
+class Withdraw_Finale extends StatelessWidget {
+  const Withdraw_Finale({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Finale extends StatelessWidget {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: const Text("Send Money",
+          title: const Text("Withdraw Money",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,

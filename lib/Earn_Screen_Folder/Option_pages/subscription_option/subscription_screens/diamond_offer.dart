@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscription_widget/subscription_custom_container.dart';
 import 'package:students_pay/Earn_Screen_Folder/components/subscriptionInfo.dart';
+import 'package:students_pay/Earn_Screen_Folder/models/subscription_model.dart';
 
 class DiamondOffer extends StatelessWidget {
-  const DiamondOffer({super.key});
-
+  const DiamondOffer({super.key, required this.offer});
+  final int offer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +41,13 @@ class DiamondOffer extends StatelessWidget {
                 ),
               ),
               SubscriptionContainer(
-                  color: Color(0x4ECCE290),
                   title: 'Diamond Offer',
-                  savingsAmount: 34),
+                  subscriptionModel: SubscriptionModel(
+                    text: 'text',
+                    offer: offer,
+                    textTwo: 'textTwo',
+                    color: Color(0x4ECCE290),
+                  )),
               Padding(
                 padding: const EdgeInsets.only(left: 22, top: 15),
                 child: Text(

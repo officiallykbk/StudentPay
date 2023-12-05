@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/Microjobs_options.dart';
-import 'package:students_pay/Earn_Screen_Folder/Option_pages/Points_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/challenges_options.dart';
-import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/points_option/Points_options.dart';
+import 'package:students_pay/Earn_Screen_Folder/Option_pages/referral_option/referral_options.dart';
 import 'package:students_pay/Earn_Screen_Folder/Option_pages/subscription_option/subscribe_options.dart';
-import 'package:students_pay/Earn_Screen_Folder/components/Savings_field.dart';
 
 var _selectedIndex = 0;
 String selected = "Subscribe";
@@ -67,92 +66,90 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
         ),
         body: SafeArea(
             child: SingleChildScrollView(
-                child: Column(children: [
-          const Savings(
-            title: 'Your Savings Balance',
-            savingsAmount: '\$15,903.',
-          ),
-          const SizedBox(height: 15),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: optionsField(
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 0;
-                        selected = "Subscribe";
-                      });
-                    },
-                    options: 'Subscribe',
-                  ),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+              const SizedBox(height: 15),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: optionsField(
+                        onTap: () {
+                          setState(() {
+                            _selectedIndex = 0;
+                            selected = "Subscribe";
+                          });
+                        },
+                        options: 'Subscribe',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 7,
+                    ),
+                    optionsField(
+                      onTap: () {
+                        setState(() {
+                          _selectedIndex = 1;
+                          selected = "Referral";
+                        });
+                      },
+                      options: 'Referral',
+                    ),
+                    const SizedBox(
+                      width: 7,
+                    ),
+                    optionsField(
+                      onTap: () {
+                        setState(() {
+                          _selectedIndex = 2;
+                          selected = "Points";
+                        });
+                      },
+                      options: 'Points',
+                    ),
+                    const SizedBox(
+                      width: 7,
+                    ),
+                    optionsField(
+                      onTap: () {
+                        setState(() {
+                          _selectedIndex = 3;
+                          selected = "Microjobs";
+                        });
+                      },
+                      options: 'Microjobs',
+                    ),
+                    const SizedBox(
+                      width: 7,
+                    ),
+                    optionsField(
+                      onTap: () {
+                        setState(() {
+                          _selectedIndex = 4;
+                          selected = "Challenge";
+                        });
+                      },
+                      options: 'Challenge',
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  width: 7,
-                ),
-                optionsField(
-                  onTap: () {
-                    setState(() {
-                      _selectedIndex = 1;
-                      selected = "Referral";
-                    });
-                  },
-                  options: 'Referral',
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                optionsField(
-                  onTap: () {
-                    setState(() {
-                      _selectedIndex = 2;
-                      selected = "Points";
-                    });
-                  },
-                  options: 'Points',
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                optionsField(
-                  onTap: () {
-                    setState(() {
-                      _selectedIndex = 3;
-                      selected = "Microjobs";
-                    });
-                  },
-                  options: 'Microjobs',
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                optionsField(
-                  onTap: () {
-                    setState(() {
-                      _selectedIndex = 4;
-                      selected = "Challenge";
-                    });
-                  },
-                  options: 'Challenge',
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 10),
-          _selectedIndex == 0
-              ? const SubscribeOptionPage()
-              : _selectedIndex == 1
-                  ? const ReferralOptionPage()
-                  : _selectedIndex == 2
-                      ? const PointsOptionPage()
-                      : _selectedIndex == 3
-                          ? const MicrojobsOptions()
-                          : _selectedIndex == 4
-                              ? const ChallengeOptions()
-                              : const SizedBox()
-        ]))));
+              ),
+              const SizedBox(height: 10),
+              _selectedIndex == 0
+                  ? const SubscribeOptionPage()
+                  : _selectedIndex == 1
+                      ? const ReferralOptionPage()
+                      : _selectedIndex == 2
+                          ? const PointsOptionPage()
+                          : _selectedIndex == 3
+                              ? const MicrojobsOptions()
+                              : _selectedIndex == 4
+                                  ? const ChallengeOptions()
+                                  : const SizedBox()
+            ]))));
   }
 
   Widget optionsField({required String options, required Function()? onTap}) {
@@ -164,7 +161,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
       onTap: onTap,
       child: Container(
         width: width * 0.3,
-        height: 45,
+        height: 50,
         decoration: BoxDecoration(
           color: selected == options ? Colors.black : Colors.transparent,
           border: const Border.fromBorderSide(

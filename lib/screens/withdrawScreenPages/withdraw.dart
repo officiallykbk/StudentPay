@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/sendScreenPages/acc_num.dart';
-import 'package:students_pay/screens/sendScreenPages/momo_num.dart';
-import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
-import 'referencepages.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
+import 'package:students_pay/screens/withdrawScreenPages/mobile_money.dart';
+import 'package:students_pay/screens/withdrawScreenPages/studentpay_account.dart';
+import 'package:students_pay/screens/withdrawScreenPages/work_account.dart';
 
-class SendMoney extends StatefulWidget {
-  const SendMoney({super.key});
+class WithdrawMoney extends StatefulWidget {
+  const WithdrawMoney({super.key});
 
   @override
-  State<SendMoney> createState() => _SendMoneyState();
+  State<WithdrawMoney> createState() => _WithdrawMoneyState();
 }
 
-class _SendMoneyState extends State<SendMoney> {
+class _WithdrawMoneyState extends State<WithdrawMoney> {
   String general = '';
   bool selected1 = false;
   bool selected2 = false;
   bool selected3 = false;
-  Widget opener() {
+
+  opener() {
     if (general == "sTs") {
-      return const StudentName();
+      return const studentpay_account();
     } else if (general == "Momo") {
-      return const MomoNum();
+      return const withdraw_momo();
     } else {
-      return const BankNum();
+      return const withdraw_work();
     }
   }
 
@@ -32,7 +33,7 @@ class _SendMoneyState extends State<SendMoney> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: AppTop(name: "Send Money"),
+        child: AppTop(name: "Withdraw Money"),
       ),
       body: Column(
         children: [
@@ -43,7 +44,7 @@ class _SendMoneyState extends State<SendMoney> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Payment Method",
+                "Select Account",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
               ),
               GestureDetector(
@@ -54,8 +55,8 @@ class _SendMoneyState extends State<SendMoney> {
                   selected3 = false;
                 }),
                 child: SendMethod(
-                    method: "StudentPay-to-StudentPay",
-                    pngname: "studentpaymode.svg",
+                    method: "StudentPay Account",
+                    pngname: "",
                     selected: selected1),
               ),
               GestureDetector(
@@ -66,8 +67,8 @@ class _SendMoneyState extends State<SendMoney> {
                         selected3 = false;
                       }),
                   child: SendMethod(
-                      method: "Mobile Money",
-                      pngname: "momo.svg",
+                      method: "Mobile Number",
+                      pngname: "",
                       selected: selected2)),
               GestureDetector(
                   onTap: () => setState(() {
@@ -77,7 +78,7 @@ class _SendMoneyState extends State<SendMoney> {
                         selected2 = false;
                       }),
                   child: SendMethod(
-                      method: "Bank", pngname: "bank.svg", selected: selected3))
+                      method: "Bank", pngname: "", selected: selected3))
             ],
           )),
           GestureDetector(

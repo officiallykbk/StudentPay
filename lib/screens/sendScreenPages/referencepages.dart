@@ -88,7 +88,9 @@ class _SendMethodState extends State<SendMethod> {
           children: [
             const SizedBox(width: 10),
             CircleAvatar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: widget.pngname == ''
+                  ? const Color.fromARGB(255, 179, 177, 177)
+                  : Colors.transparent,
               child: SvgPicture.asset("assets/svgassets/${widget.pngname}"),
             ),
             const SizedBox(width: 5),
@@ -138,10 +140,76 @@ class Progress extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 50,
       margin: const EdgeInsets.only(top: 10, bottom: 10),
       child: LinearProgressIndicator(
-        color: Colors.black,
+        color: Colors.amber.shade400,
         backgroundColor: const Color.fromARGB(255, 204, 204, 204),
         value: indicator,
       ),
+    );
+  }
+}
+
+// Alert Dialog Box
+//
+// need to make it reusable so as to have the destination settable
+//
+class PopUpMenu extends StatelessWidget {
+  final String amount;
+  final String receiver_name;
+  final VoidCallback function_name;
+
+  const PopUpMenu({
+    super.key,
+    required this.amount,
+    required this.receiver_name,
+    required this.function_name,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title:
+          Text("Are you sure you want to send GHC$amount to $receiver_name?"),
+      backgroundColor: Colors.white,
+      actions: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            InkWell(
+              borderRadius: BorderRadius.circular(24),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(style: BorderStyle.solid),
+                ),
+                child: const Text("Cancel"),
+              ),
+            ),
+            const SizedBox(height: 5),
+            InkWell(
+              borderRadius: BorderRadius.circular(24),
+              onTap: function_name,
+              child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(style: BorderStyle.solid),
+                ),
+                child: const Text(
+                  "Yes",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

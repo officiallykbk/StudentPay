@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:students_pay/screens/sendScreenPages/acc_num.dart';
-import 'package:students_pay/screens/sendScreenPages/momo_num.dart';
-import 'package:students_pay/screens/sendScreenPages/sTsName.dart';
-import 'referencepages.dart';
+import 'package:students_pay/screens/sendScreenPages/referencepages.dart';
+import 'package:students_pay/screens/withdrawScreenPages/amount.dart';
 
-class SendMoney extends StatefulWidget {
-  const SendMoney({super.key});
+class withdraw_momo extends StatefulWidget {
+  const withdraw_momo({super.key});
 
   @override
-  State<SendMoney> createState() => _SendMoneyState();
+  State<withdraw_momo> createState() => _withdraw_momoState();
 }
 
-class _SendMoneyState extends State<SendMoney> {
+class _withdraw_momoState extends State<withdraw_momo> {
   String general = '';
   bool selected1 = false;
   bool selected2 = false;
   bool selected3 = false;
+
   Widget opener() {
-    if (general == "sTs") {
-      return const StudentName();
-    } else if (general == "Momo") {
-      return const MomoNum();
-    } else {
-      return const BankNum();
-    }
+    return Amount(option: general);
   }
 
   @override
@@ -32,52 +25,52 @@ class _SendMoneyState extends State<SendMoney> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: AppTop(name: "Send Money"),
+        child: AppTop(name: "Withdraw Money"),
       ),
       body: Column(
         children: [
           // Progress bar
-          const Progress(indicator: 0.2),
+          const Progress(indicator: 0.4),
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Payment Method",
+                "StudentPay Account",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
               ),
               GestureDetector(
                 onTap: () => setState(() {
-                  general = 'sTs';
+                  general = 'Current Account';
                   selected1 = !selected1;
                   selected2 = false;
                   selected3 = false;
                 }),
                 child: SendMethod(
-                    method: "StudentPay-to-StudentPay",
-                    pngname: "studentpaymode.svg",
-                    selected: selected1),
+                    method: "To Be Refined", pngname: "", selected: selected1),
               ),
               GestureDetector(
                   onTap: () => setState(() {
-                        general = 'Momo';
+                        general = 'Current Account';
                         selected2 = !selected2;
                         selected1 = false;
                         selected3 = false;
                       }),
                   child: SendMethod(
-                      method: "Mobile Money",
-                      pngname: "momo.svg",
+                      method: "To Be Refined",
+                      pngname: "",
                       selected: selected2)),
               GestureDetector(
                   onTap: () => setState(() {
-                        general = 'Acc';
+                        general = 'Current Account';
                         selected3 = !selected3;
                         selected1 = false;
                         selected2 = false;
                       }),
                   child: SendMethod(
-                      method: "Bank", pngname: "bank.svg", selected: selected3))
+                      method: "To Be Refined",
+                      pngname: "",
+                      selected: selected3))
             ],
           )),
           GestureDetector(
