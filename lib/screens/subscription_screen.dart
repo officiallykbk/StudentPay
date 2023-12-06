@@ -96,9 +96,9 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                   borderRadius: BorderRadius.circular(18),
                 ),
                 labelPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 26, vertical: 8),
                 indicatorPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 2, vertical: 8),
               ),
               const Expanded(
                 child: TabBarView(
